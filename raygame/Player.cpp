@@ -25,4 +25,5 @@ void Player::update(float deltaTime)
 
 	m_moveComponent->setVelocity(moveDirection * 1100);
 	
+
 }
