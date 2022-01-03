@@ -2,6 +2,7 @@
 #include "Transform2D.h"
 #include "Enemy.h"
 #include "Player.h"
+#include "EnemySpawner.h"
 
 void PracticeScene::start()
 { 
@@ -9,7 +10,11 @@ void PracticeScene::start()
 	player->getTransform()->setScale({ 50, 50 });
 	addActor(player);
 
-	Enemy* enemy = new Enemy(100, 50, 100);
-	addActor(enemy);
+	EnemySpawner* spawner = new EnemySpawner();
+	addActor(spawner);
+
+	
 
 }
+
+

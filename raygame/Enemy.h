@@ -24,5 +24,7 @@ private:
     MoveComponent* m_movement;
     Bullet* m_bullets;
 
+    int m_timer;
+
 };
 

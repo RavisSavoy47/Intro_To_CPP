@@ -7,7 +7,6 @@ class EnemySpawner :
 {
 public:
     void start() override;
-    void update(float deltaTime) override;
 
 private:
     EnemySpawnComponent* m_enemy;

@@ -1,10 +1,8 @@
 #include "EnemySpawner.h"
 #include "Enemy.h"
+#include "EnemySpawnComponent.h"
 
 void EnemySpawner::start()
 {
-}
-
-void EnemySpawner::update(float deltaTime)
-{
+	m_enemy = dynamic_cast<EnemySpawnComponent*>(addComponent(new EnemySpawnComponent()));
 }

@@ -5,6 +5,7 @@ class EnemySpawnComponent :
     public Component
 {
 public:
+
     void start() override;
     void update(float deltaTime) override;
 
@@ -14,6 +15,7 @@ private:
 private:
     Enemy* m_enemy;
 
-
+    int m_timer;
+    int m_timeLimiter;
 };
 
