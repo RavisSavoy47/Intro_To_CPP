@@ -2,6 +2,7 @@
 #include "raylib.h"
 #include "Transform2D.h"
 #include "MainScene.h"
+#include "PracticeScene.h"
 
 bool Engine::m_applicationShouldClose = false;
 Scene** Engine::m_scenes = new Scene*;
@@ -28,7 +29,8 @@ void Engine::start()
 	SetTargetFPS(0);
 
 	//Start the scene
-	m_currentSceneIndex = addScene(new MainScene());
+	//m_currentSceneIndex = addScene(new MainScene());
+	m_currentSceneIndex = addScene(new PracticeScene());
 	m_scenes[m_currentSceneIndex]->start();
 }
 
