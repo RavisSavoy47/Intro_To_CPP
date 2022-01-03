@@ -2,6 +2,7 @@
 #include "raylib.h"
 #include "Transform2D.h"
 #include "MainScene.h"
+#include "UIText.h"
 
 bool Engine::m_applicationShouldClose = false;
 Scene** Engine::m_scenes = new Scene*;
@@ -36,6 +37,8 @@ void Engine::update(float deltaTime)
 {
 	//Clean up actors marked for destruction
 	destroyActorsInList();
+
+	//UIText actor = UIText(1, 1, "player", "Hello", 20, 20, 10, FONT_DEFAULT, RAYWHITE);
 
 	//Update scene
 	m_scenes[m_currentSceneIndex]->update(deltaTime);
