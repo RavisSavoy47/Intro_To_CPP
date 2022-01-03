@@ -46,5 +46,5 @@ void SpriteComponent::draw()
 	float rotation = atan2(getOwner()->getTransform()->getGlobalMatrix()->m10, getOwner()->getTransform()->getGlobalMatrix()->m00);
 
 	//Draw the sprite
-	RAYLIB_H::DrawTextureEx(*m_texture, rayPos, (float)(rotation * 18.0f / PI), 1, WHITE);
+	RAYLIB_H::DrawTextureEx(*m_texture, rayPos, (float)(rotation * 180.0f / PI), 1, WHITE);
 }
