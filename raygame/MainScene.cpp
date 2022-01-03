@@ -12,6 +12,6 @@ void MainScene::start()
     addActor(player);
 
 
-    UIText* UI = new UIText(100, 100, "player", "Welcome Player", 20, 20, 75, RAYWHITE);
+    UIText* UI = new UIText(100, 100, "player", "Player Health", 20, 20, 75, RAYWHITE);
     addUIElement(UI);
 }
