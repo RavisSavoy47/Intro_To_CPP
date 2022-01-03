@@ -1,13 +1,12 @@
 #pragma once
 #include "Actor.h"
-
-class Texture2D;
+#include <raylib.h>
 
 class UIText :
 	public Actor
 {
 public:
-	UIText(float x, float y, const char* name, const char* text, int width, int height, int fontSize, Font font, Color fontColor);
+	UIText(float x, float y, const char* name, const char* text, int width, int height, int fontSize, Color fontColor);
 	UIText() {};
 	~UIText() {};
 
