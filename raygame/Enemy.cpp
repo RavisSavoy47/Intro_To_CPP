@@ -8,6 +8,8 @@ Enemy::Enemy(float x, float y, int maxSpeed, const char* name) : Actor::Actor(x,
 	m_movement = dynamic_cast<MoveComponent*>(addComponent(new MoveComponent()));
 	m_sprite = dynamic_cast<SpriteComponent*>(addComponent(new SpriteComponent("Images/enemy.png")));
 
+	getTransform()->setScale({ 50,50 });
+
 	m_maxSpeed = maxSpeed;
 }
 

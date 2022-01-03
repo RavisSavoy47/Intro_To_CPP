@@ -9,8 +9,7 @@ void PracticeScene::start()
 	player->getTransform()->setScale({ 50, 50 });
 	addActor(player);
 
-	Enemy* enemy = new Enemy(100, 50, 50);
-	enemy->getTransform()->setScale({ 50, 50 });
+	Enemy* enemy = new Enemy(100, 50, 100);
 	addActor(enemy);
 
 }
