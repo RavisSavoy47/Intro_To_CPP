@@ -65,6 +65,12 @@
     <ClCompile Include="PracticeScene.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="EnemySpawner.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="EnemySpawnComponent.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Scene.h">
@@ -113,6 +119,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="PracticeScene.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemySpawner.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemySpawnComponent.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

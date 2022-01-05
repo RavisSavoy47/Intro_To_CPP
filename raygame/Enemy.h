@@ -9,8 +9,11 @@ class Enemy :
     public Actor
 {
 public:
-    Enemy() {};
+    //Defult Contructor 
+    Enemy() : Actor::Actor(0, 0, "defult") {};
+    //Defult DeConstructor 
     ~Enemy() { };
+    //Enemies classifications at intitalization 
     Enemy(float x, float y, int maxSpeed, const char* name = "Enemy");
     
     void start() override;
@@ -20,6 +23,8 @@ private:
     SpriteComponent* m_sprite;
     MoveComponent* m_movement;
     Bullet* m_bullets;
+
+    int m_timer;
 
 };
 
