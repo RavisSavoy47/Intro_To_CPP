@@ -10,7 +10,7 @@ void PracticeScene::start()
 	player->getTransform()->setScale({ 50, 50 });
 	addActor(player);
 
-	EnemySpawner* spawner = new EnemySpawner();
+	EnemySpanner* spawner = new EnemySpanner();
 	addActor(spawner);
 
 	
