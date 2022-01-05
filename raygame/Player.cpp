@@ -6,6 +6,8 @@
 #include "CircleCollider.h"
 #include <iostream>
 
+#include "Engine.h"
+
 void Player::start()
 {
 	Actor::start();
@@ -44,8 +46,9 @@ void Player::onCollision(Actor* actor)
 {
 	if (actor->getName() == "Enemy")
 	{
-		std::cout << "collision" << std::endl;
-		getTransform()->setLocalPosition(MathLibrary::Vector2(50, 50));
+		getTransform()->setWorldPostion({ 50, 50 });
+		/*std::cout << "collision" << std::endl;
+		getTransform()->setWorldPostion({ 50, 50 });*/
 	}
 }
 

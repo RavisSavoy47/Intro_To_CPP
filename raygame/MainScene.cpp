@@ -19,7 +19,7 @@ void MainScene::start()
     CircleCollider* playercollider = new CircleCollider(30, player);
     player->setCollider(playercollider);
 
-    Enemy* enemy = new Enemy(3, 1, 0);
+    Enemy* enemy = new Enemy(200, 1, 100);
     addActor(enemy);
 
     CircleCollider* enemycollider = new CircleCollider(30, enemy);
