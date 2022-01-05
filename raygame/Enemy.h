@@ -10,13 +10,16 @@ class Enemy :
 {
 public:
     //Defult Contructor 
-    Enemy() : Actor::Actor(0, 0, "defult") {};
+    //Enemy() : Actor::Actor(0, 0, "defult") {};
     //Defult DeConstructor 
     ~Enemy() { };
     //Enemies classifications at intitalization 
     Enemy(float x, float y, int maxSpeed, const char* name = "Enemy");
     
     void start() override;
+    void draw() override;
+    void onCollision(Actor* actor) override;
+
     
 private:
     int m_maxSpeed; 

@@ -3,6 +3,9 @@
 #include "SpriteComponent.h"
 #include "Transform2D.h"
 #include "Engine.h"
+#include "CircleCollider.h"
+
+#include <iostream>
 
 Enemy::Enemy(float x, float y, int maxSpeed, const char* name) : Actor::Actor(x, y, name)
 {
@@ -21,6 +24,21 @@ void Enemy::start()
 	m_movement->setVelocity(moveDirection * m_maxSpeed);
 
 	m_timer = 0;
+}
+
+void Enemy::draw()
+{
+	Actor::draw();
+	getCollider()->draw();
+}
+
+void Enemy::onCollision(Actor* actor)
+{
+	if (actor->getName() == "Player")
+	{
+		std::cout << "collision" << std::endl;
+		getTransform()->setLocalPosition(MathLibrary::Vector2(100, 1));
+	}
 }
 
 

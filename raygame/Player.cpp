@@ -3,6 +3,8 @@
 #include "MoveComponent.h"
 #include "SpriteComponent.h"
 #include "Transform2D.h"
+#include "CircleCollider.h"
+#include <iostream>
 
 void Player::start()
 {
@@ -31,3 +33,21 @@ void Player::update(float deltaTime)
 	m_moveComponent->setVelocity(moveDirection.getNormalized() * 500);
 
 }
+
+void Player::draw()
+{
+	Actor::draw();
+	getCollider()->draw();
+}
+
+void Player::onCollision(Actor* actor)
+{
+	
+
+	if (actor->getName() == "Enemy")
+	{
+		std::cout << "collision" << std::endl;
+		getTransform()->setLocalPosition(MathLibrary::Vector2(50, 50));
+	}
+}
+
