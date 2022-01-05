@@ -4,5 +4,6 @@
 
 void EnemySpanner::start()
 {
+	Actor::start();
 	m_enemy = dynamic_cast<EnemySpawnComponent*>(addComponent(new EnemySpawnComponent()));
 }

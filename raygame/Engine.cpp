@@ -4,6 +4,7 @@
 #include "MainScene.h"
 #include "PracticeScene.h"
 
+
 bool Engine::m_applicationShouldClose = false;
 Scene** Engine::m_scenes = new Scene*;
 ActorArray Engine::m_actorsToDelete = ActorArray();
