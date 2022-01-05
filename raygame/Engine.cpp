@@ -38,7 +38,7 @@ void Engine::update(float deltaTime)
 {
 	//Clean up actors marked for destruction
 	destroyActorsInList();
-
+	
 	//Update scene
 	m_scenes[m_currentSceneIndex]->update(deltaTime);
 	m_scenes[m_currentSceneIndex]->updateUI(deltaTime);
