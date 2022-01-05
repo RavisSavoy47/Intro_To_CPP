@@ -7,6 +7,8 @@
 #include "Transform2D.h"
 #include "UIText.h"
 #include "CircleCollider.h"
+#include <iostream>
+#include "string.h"
 
 void MainScene::start()
 {
@@ -17,7 +19,7 @@ void MainScene::start()
     CircleCollider* playercollider = new CircleCollider(30, player);
     player->setCollider(playercollider);
 
-    Enemy* enemy = new Enemy(100, 1, 100, "Enemy");
+    Enemy* enemy = new Enemy(3, 1, 0);
     addActor(enemy);
 
     CircleCollider* enemycollider = new CircleCollider(30, enemy);
@@ -26,7 +28,7 @@ void MainScene::start()
     /*EnemySpawner* spawner = new EnemySpawner();
     addActor(spawner);*/
 
-
-    UIText* UI = new UIText(100, 1000, "Lives", "Lives", 20, 20, 75, RAYWHITE);
+    //strint
+    UIText* UI = new UIText(600, 10, "Lives", "Lives", 20, 20, 75, RAYWHITE);
     addUIElement(UI);
 }

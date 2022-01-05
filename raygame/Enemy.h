@@ -10,7 +10,7 @@ class Enemy :
 {
 public:
     //Defult Contructor 
-    //Enemy() : Actor::Actor(0, 0, "defult") {};
+    Enemy() : Actor::Actor(0, 0, "defult") {};
     //Defult DeConstructor 
     ~Enemy() { };
     //Enemies classifications at intitalization 

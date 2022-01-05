@@ -42,8 +42,6 @@ void Player::draw()
 
 void Player::onCollision(Actor* actor)
 {
-	
-
 	if (actor->getName() == "Enemy")
 	{
 		std::cout << "collision" << std::endl;
