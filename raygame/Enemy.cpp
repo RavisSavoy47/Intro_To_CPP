@@ -3,6 +3,7 @@
 #include "SpriteComponent.h"
 #include "Transform2D.h"
 #include "Engine.h"
+#include <iostream>
 
 Enemy::Enemy(float x, float y, int maxSpeed, const char* name) : Actor::Actor(x, y, name)
 {
@@ -16,11 +17,23 @@ Enemy::Enemy(float x, float y, int maxSpeed, const char* name) : Actor::Actor(x,
 
 void Enemy::start()
 {
+	Actor::start();
 	MathLibrary::Vector2 moveDirection = MathLibrary::Vector2(0, 1);
 	getTransform()->setForward(moveDirection);
 	m_movement->setVelocity(moveDirection * m_maxSpeed);
 
 	m_timer = 0;
+}
+
+void Enemy::update(float deltaTime)
+{ 
+	Actor::update(deltaTime);
+	m_timer += deltaTime;
+	std::cout << m_timer << std::endl;
+	if (m_timer >= 5.0f)
+		Engine::destroy(this);
+	
+
 }
 
 

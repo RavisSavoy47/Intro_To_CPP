@@ -15,7 +15,7 @@ private:
 private:
     Enemy* m_enemy;
 
-    int m_timer;
-    int m_timeLimiter;
+    float m_timer;
+    float m_timeLimiter;
 };
 

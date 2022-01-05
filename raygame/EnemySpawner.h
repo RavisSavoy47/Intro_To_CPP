@@ -2,7 +2,7 @@
 #include "Actor.h"
 class EnemySpawnComponent;
 
-class EnemySpawner :
+class EnemySpanner :
     public Actor
 {
 public:

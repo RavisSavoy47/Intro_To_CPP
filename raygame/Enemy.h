@@ -17,6 +17,7 @@ public:
     Enemy(float x, float y, int maxSpeed, const char* name = "Enemy");
     
     void start() override;
+    void update(float deltaTime) override;
     
 private:
     int m_maxSpeed; 
@@ -24,7 +25,7 @@ private:
     MoveComponent* m_movement;
     Bullet* m_bullets;
 
-    int m_timer;
+    float m_timer;
 
 };
 
