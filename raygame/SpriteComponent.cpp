@@ -30,12 +30,12 @@ void SpriteComponent::draw()
 	m_texture->width = m_width;
 	m_texture->height = m_height;
 
-	//Get the position of th eowner
+	//Get the position of the owner
 	MathLibrary::Vector2 up = { getOwner()->getTransform()->getGlobalMatrix()->m01, getOwner()->getTransform()->getGlobalMatrix()->m11 };
 	MathLibrary::Vector2 forward = getOwner()->getTransform()->getForward();
 	MathLibrary::Vector2 position = getOwner()->getTransform()->getWorldPosition();
 
-	//Change the position of th esprite to be in the center of the transform
+	//Change the position of the sprite to be in the center of the transform
 	position = position - (forward * getWidth() / 2);
 	position = position - (up.getNormalized() * getWidth() / 2);
 
