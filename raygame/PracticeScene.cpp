@@ -3,6 +3,8 @@
 #include "Enemy.h"
 #include "Player.h"
 #include "EnemySpawner.h"
+#include "Bullet.h"
+#include "Actor.h"
 
 void PracticeScene::start()
 { 
@@ -16,6 +18,8 @@ void PracticeScene::start()
 	EnemySpanner* spawner = new EnemySpanner();
 	addActor(spawner);
 
+	Bullet* bullet = new Bullet( 50, 50, 0, player);
+	addActor(bullet);
 	
 
 }
