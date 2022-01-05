@@ -29,10 +29,5 @@ void Player::update(float deltaTime)
 		getTransform()->setForward(m_moveComponent->getVelocity());
 
 	m_moveComponent->setVelocity(moveDirection.getNormalized() * 500);
-		
-<<<<<<< HEAD
-	
 
-=======
->>>>>>> UI-Text
 }
