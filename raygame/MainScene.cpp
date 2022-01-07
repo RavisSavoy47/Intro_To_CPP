@@ -13,7 +13,6 @@
 void MainScene::start()
 {
     Player* player = new Player(50, 50, "Player");
-    player->getTransform()->setScale({ 50, 50 });
     addActor(player);
 
     CircleCollider* playercollider = new CircleCollider(30, player);
@@ -31,4 +30,5 @@ void MainScene::start()
     //strint
     UIText* UI = new UIText(600, 10, "Lives", "Lives", 20, 20, 75, RAYWHITE);
     addUIElement(UI);
+
 }

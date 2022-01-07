@@ -37,7 +37,7 @@ void Enemy::onCollision(Actor* actor)
 	/*if (actor->getName() == "Player")
 	{
 		std::cout << "collision" << std::endl;
-		getTransform()->setWorldPostion({ 200, 1 });
+		actor->getTransform()->setWorldPostion({ 200, 1 });
 	}*/
 }
 
