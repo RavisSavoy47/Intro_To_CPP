@@ -17,6 +17,9 @@ public:
     Enemy(float x, float y, int maxSpeed, const char* name = "Enemy");
     
     void start() override;
+    void draw() override;
+    void onCollision(Actor* actor) override;
+
     
 private:
     int m_maxSpeed; 

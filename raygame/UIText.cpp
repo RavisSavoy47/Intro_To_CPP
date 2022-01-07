@@ -22,5 +22,5 @@ void UIText::draw()
 	/*Rectangle rec = Rectangle();
 	DrawTextRec(m_font, m_text, rec, m_fontSize, 1, true, m_fontColor);*/
 
-	DrawText(m_text, 10, 10, m_fontSize, m_fontColor);
+	DrawText(m_text, 10, 700, m_fontSize, m_fontColor);
 }
