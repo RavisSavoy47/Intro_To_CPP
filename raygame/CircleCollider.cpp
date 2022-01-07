@@ -65,6 +65,8 @@ bool CircleCollider::checkCollisionAABB(AABBCollider* otherCollider)
 
 void CircleCollider::draw()
 {
-    DrawCircleLines((int)getOwner()->getTransform()->getLocalPosition().x, (int)getOwner()->getTransform()->getLocalPosition().y, m_collisionRadius, RAYWHITE);
     Collider::draw();
+    
+    DrawCircleLines((int)getOwner()->getTransform()->getLocalPosition().x, (int)getOwner()->getTransform()->getLocalPosition().y, m_collisionRadius, RAYWHITE);
+    
 }

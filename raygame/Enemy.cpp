@@ -36,11 +36,11 @@ void Enemy::draw()
 
 void Enemy::onCollision(Actor* actor)
 {
-	/*if (actor->getName() == "Player")
+	if (actor->getName() == "Player")
 	{
 		std::cout << "collision" << std::endl;
-		actor->getTransform()->setWorldPostion({ 50, 50 });
-	}*/
+		//actor->getTransform()->setWorldPostion({ 50, 50 });
+	}
 }
 
 

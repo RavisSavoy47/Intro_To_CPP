@@ -9,11 +9,10 @@
 #include "CircleCollider.h"
 #include <iostream>
 #include "string.h"
-#include "AABBCollider.h"
 
 void MainScene::start()
 {
-    Player* player = new Player(50, 50, "Player");
+    Player* player = new Player(100, 400, "Player");
     addActor(player);
 
     CircleCollider* playercollider = new CircleCollider(30, player);
