@@ -23,5 +23,6 @@ private:
 	InputComponent* m_inputComponent;
 	MoveComponent* m_moveComponent;
 	SpriteComponent* m_spriteComponent;
+	float m_maxLives;
 };
 

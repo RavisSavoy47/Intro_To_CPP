@@ -1,5 +1,7 @@
 #include "UIText.h"
-
+#include <iostream>
+#include "string.h"
+#include "Player.h"
 UIText::UIText(float x, float y, const char* name, const char* text, int width, int height, int fontSize, Color fontColor) : Actor::Actor(x, y, name)
 {
 	m_text = text;
@@ -15,6 +17,12 @@ UIText::UIText(float x, float y, const char* name, const char* text, int width, 
 void UIText::start()
 {
 	Actor::start();
+}
+
+void UIText::update(float deltaTime)
+{
+	Actor::update(deltaTime);
+
 }
 
 void UIText::draw()

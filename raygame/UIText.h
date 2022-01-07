@@ -18,7 +18,7 @@ public:
 	Color m_fontColor;
 
 	void start() override;
-
+	void update(float deltaTime) override;
 	void draw() override;
 
 };

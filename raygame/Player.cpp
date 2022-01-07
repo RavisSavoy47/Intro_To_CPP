@@ -16,6 +16,8 @@ void Player::start()
 	m_moveComponent->setMaxSpeed(100);
 	m_spriteComponent = dynamic_cast<SpriteComponent*>(addComponent(new SpriteComponent("Images/player.png")));
 
+	m_maxLives = 30;
+
 	getTransform()->setScale({ 50,50 });
 
 
@@ -30,11 +32,19 @@ void Player::update(float deltaTime)
 
 	MathLibrary::Vector2 moveDirection = m_inputComponent->getMoveAxis();
 
+	//If their lives equal zero
+	if (m_maxLives <= 0)
+	{
+		//removes the player from the scene
+		Engine::getCurrentScene()->removeActor(this);
+		Engine::CloseApplication();
+	}
+
 	//player rotation
 	if (m_moveComponent->getVelocity().getMagnitude() > 0)
 		getTransform()->setForward(m_moveComponent->getVelocity());
 
-	m_moveComponent->setVelocity(moveDirection.getNormalized() * 200);
+	m_moveComponent->setVelocity(moveDirection.getNormalized() * 500);
 
 }
 
@@ -48,8 +58,8 @@ void Player::onCollision(Actor* actor)
 {
 	if (actor->getName() == "Enemy")
 	{
-		std::cout << "collision" << std::endl;
-		//Engine::getCurrentScene()->removeActor(actor);
+		std::cout << "Playercollision" << std::endl;
+		m_maxLives--;
 	}
 }
 

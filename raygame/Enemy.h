@@ -17,6 +17,7 @@ public:
     Enemy(float x, float y, int maxSpeed, const char* name = "Enemy");
     
     void start() override;
+    void update(float deltaTime) override;
     void draw() override;
     void onCollision(Actor* actor) override;
 
@@ -26,6 +27,9 @@ private:
     SpriteComponent* m_sprite;
     MoveComponent* m_movement;
     Bullet* m_bullets;
+
+
+    float m_maxLives;
 
     int m_timer;
 
