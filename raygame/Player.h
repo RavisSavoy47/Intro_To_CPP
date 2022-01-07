@@ -8,12 +8,15 @@ class Player :
 	public Actor
 {
 public:
+	//Defult Contructor 
+	Player() : Actor::Actor(0, 0, "defult") {};
+	//Defult DeConstructor 
+	~Player() { };
 	Player(float x, float y, const char* name) : Actor(x, y, name) {}
 
 	void start() override;
 	void update(float deltaTime) override;
 	void draw() override;
-
 	void onCollision(Actor* actor) override;
 
 private:

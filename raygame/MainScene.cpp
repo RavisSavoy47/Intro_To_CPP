@@ -9,6 +9,7 @@
 #include "CircleCollider.h"
 #include <iostream>
 #include "string.h"
+#include "AABBCollider.h"
 
 void MainScene::start()
 {

@@ -46,10 +46,12 @@ void Player::draw()
 
 void Player::onCollision(Actor* actor)
 {
-	/*if (actor->getName() == "Enemy")
+	if (actor->getName() == "Enemy")
 	{
 		std::cout << "collision" << std::endl;
-		getTransform()->setWorldPostion({ 50, 50 });
-	}*/
+		Engine::getCurrentScene()->removeActor(actor);
+	}
 }
+
+
 
