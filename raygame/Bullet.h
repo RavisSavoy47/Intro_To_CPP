@@ -3,12 +3,13 @@
 
 class MoveComponent;
 class SpriteComponent;
+class Actor;
 
 class Bullet :
     public Actor
 {
 public:
-    Bullet(float x, float y, float maxSpeed, Actor owner, const char* name = "Bullet");
+    Bullet(float maxSpeed, Actor* owner, const char* name);
 
     void start() override;
     void update(float deltaTime) override;
@@ -16,6 +17,9 @@ public:
 private:
     MoveComponent* m_moveComp;
     SpriteComponent* m_spriteComp;
+
+    float m_maxSpeed;
+    Actor* m_owner;
 
     float m_timer;
 

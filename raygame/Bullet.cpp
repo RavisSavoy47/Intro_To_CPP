@@ -4,11 +4,12 @@
 #include "SpriteComponent.h"
 #include "Engine.h"
 
-Bullet::Bullet(float x, float y, float maxSpeed, Actor owner, const char* name = "bullet") : Actor::Actor(x, y, name)
+Bullet::Bullet(float maxSpeed, Actor* owner, const char* name) : Actor::Actor(0, 0, name)
 {
 	getTransform()->setScale({ 50,50 });
-	getTransform()->setForward(owner.getTransform()->getForward());
-	
+	getTransform()->setWorldPostion(owner->getTransform()->getWorldPosition());
+	m_owner = owner;
+	m_maxSpeed = maxSpeed;
 }
 
 void Bullet::start() 
@@ -17,6 +18,10 @@ void Bullet::start()
 
 	m_moveComp = dynamic_cast<MoveComponent*>(addComponent(new MoveComponent()));
 	m_spriteComp = dynamic_cast<SpriteComponent*>(addComponent(new SpriteComponent("Images/bullet.png")));
+
+	MathLibrary::Vector2 moveDirection = m_owner->getTransform()->getForward();
+
+	m_moveComp->setVelocity(moveDirection * m_maxSpeed);
 }
 
 void Bullet::update(float deltaTime)

@@ -26,7 +26,7 @@ void EnemySpawnComponent::DupilcateEnemies(float deltaTime)
 	// Gets a number between 2 and 30
 	int rng = rand() % 30 + 1 ;
 	//Creats an enemy
-	m_enemy = new Enemy(25 * rng, 5, 400);
+	m_enemy = new Enemy(25 * rng, 5, 200);
 	//adds delta time to the timer once per frame 
 	m_timer += deltaTime;
 

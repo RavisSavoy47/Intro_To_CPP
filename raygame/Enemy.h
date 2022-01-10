@@ -3,7 +3,7 @@
 
 class SpriteComponent;
 class MoveComponent;
-class Bullet;
+class AutoShotComponent;
 
 class Enemy :
     public Actor
@@ -23,7 +23,7 @@ private:
     int m_maxSpeed; 
     SpriteComponent* m_sprite;
     MoveComponent* m_movement;
-    Bullet* m_bullets;
+    AutoShotComponent* m_shotComp;
 
     float m_timer;
 
