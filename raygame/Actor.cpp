@@ -11,7 +11,12 @@ Actor::Actor()
 
 Actor::~Actor()
 {
+    ///Deletes all components
+    for (int i = 0; i < m_componentCount; i++)
+        delete m_components[i];
+
     delete m_transform;
+    
 }
 
 Actor::Actor(float x, float y, const char* name = "Actor")

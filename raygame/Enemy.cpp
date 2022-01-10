@@ -5,6 +5,7 @@
 #include "Transform2D.h"
 #include "Engine.h"
 #include "CircleCollider.h"
+#include <iostream>
 
 Enemy::Enemy(float x, float y, int maxSpeed, const char* name) : Actor::Actor(x, y, name)
 {
@@ -15,6 +16,9 @@ Enemy::Enemy(float x, float y, int maxSpeed, const char* name) : Actor::Actor(x,
 	m_shotComp->assignOwner(this);
 
 	getTransform()->setScale({ 50,50 });
+
+	CircleCollider* circleCollider = new CircleCollider({ 30, this });
+	this->setCollider(circleCollider);
 
 	m_maxSpeed = maxSpeed;
 }
@@ -37,11 +41,12 @@ void Enemy::draw()
 	getCollider()->draw();
 }
 void Enemy::update(float deltaTime)
-{ 
+{
 	Actor::update(deltaTime);
 	m_timer += deltaTime;
 	if (m_timer >= 5.0f)
 		Engine::destroy(this);
+}
 	
 
 void Enemy::onCollision(Actor* actor)
@@ -52,6 +57,6 @@ void Enemy::onCollision(Actor* actor)
 		//actor->getTransform()->setWorldPostion({ 50, 50 });
 	}
 }
-}
+
 
 
