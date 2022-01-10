@@ -26,6 +26,8 @@ Actor::Actor(float x, float y, const char* name = "Actor")
 
 void Actor::onCollision(Actor* other)
 {
+    for (int i = 0; i < m_componentCount; i++)
+        m_components[i]->onCollision(other);
 }
 
 Component* Actor::addComponent(Component* component)
@@ -197,8 +199,8 @@ void Actor::onDestroy()
 
 bool Actor::checkForCollision(Actor* other)
 {
-    for (int i = 0; i < m_componentCount; i++)
-        m_components[i]->onCollision(other);
+    if (m_collider)
+        return m_collider->checkCollision(other);
 
-    return other;
+    return false;
 }

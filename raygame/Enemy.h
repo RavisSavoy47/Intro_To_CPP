@@ -18,6 +18,9 @@ public:
     
     void start() override;
     void update(float deltaTime) override;
+    void draw() override;
+    void onCollision(Actor* actor) override;
+
     
 private:
     int m_maxSpeed; 
