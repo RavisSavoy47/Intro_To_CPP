@@ -164,6 +164,8 @@
     <ClCompile Include="MoveComponent.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="PracticeScene.cpp" />
+    <ClCompile Include="RingAround.cpp" />
+    <ClCompile Include="RotationActor.cpp" />
     <ClCompile Include="Scene.cpp" />
     <ClCompile Include="SpriteComponent.cpp" />
     <ClCompile Include="AutoShotComponent.cpp" />
@@ -188,6 +190,8 @@
     <ClInclude Include="MoveComponent.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="PracticeScene.h" />
+    <ClInclude Include="RingAround.h" />
+    <ClInclude Include="RotationActor.h" />
     <ClInclude Include="Scene.h" />
     <ClInclude Include="SpriteComponent.h" />
     <ClInclude Include="AutoShotComponent.h" />
