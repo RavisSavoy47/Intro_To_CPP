@@ -12,7 +12,6 @@ public:
 	void update(float deltaTime) override;
 
 private:
-	SpriteComponent* m_spriteComp;
 	float m_timer;
 	Actor* m_owner;
 

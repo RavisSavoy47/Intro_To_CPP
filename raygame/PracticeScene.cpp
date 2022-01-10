@@ -2,7 +2,7 @@
 #include "Transform2D.h"
 #include "Enemy.h"
 #include "Player.h"
-#include "EnemySpawner.h"
+#include "Spawner.h"
 #include "RingAround.h"
 #include "RotationActor.h"
 #include "Actor.h"
@@ -23,7 +23,7 @@ void PracticeScene::start()
 	RingAround* upgrade = new RingAround(rotate,"RingAround");
 	addActor(upgrade);
 
-	EnemySpanner* spawner = new EnemySpanner();
+	Spawner * spawner = new Spawner();
 	addActor(spawner);
 
 	

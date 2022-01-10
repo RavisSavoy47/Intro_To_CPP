@@ -56,6 +56,7 @@ void Player::onCollision(Actor* actor)
 		std::cout << "collision" << std::endl;
 		//Engine::getCurrentScene()->removeActor(actor);
 	}
+	if (actor->getName() == "RingAroundUpgrade");
 }
 
 

@@ -7,7 +7,7 @@
 RingAround::RingAround(Actor* owner, const char* name)
 {
 	owner->getTransform()->addChild(getTransform());
-	getTransform()->setScale({ 50,50 });
+	getTransform()->setScale({ 30,30 });
 	setName(name);
 }
 

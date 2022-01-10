@@ -11,6 +11,7 @@ RotationActor::RotationActor(Actor* owner)
 void RotationActor::start()
 {
 	Actor::start();
+	//Gets The Owner Starting Location
 	getTransform()->setWorldPostion(m_owner->getTransform()->getWorldPosition());
 	
 }
@@ -18,7 +19,10 @@ void RotationActor::start()
 void RotationActor::update(float deltaTime)
 {
 	Actor::update(deltaTime);
+	//Fallows The Owner Location
 	getTransform()->setWorldPostion(m_owner->getTransform()->getWorldPosition());
+	
+	//Rotates 
 	m_timer += deltaTime;
 	getTransform()->setRotation(m_timer);
 	
