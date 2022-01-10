@@ -8,16 +8,17 @@
 #include "Engine.h"
 #include "UIText.h"
 #include "PlayerLives.h"
+#include "PlayerLifeComponent.h"
 
 void Player::start()
 {
 	Actor::start();
-
+	
 	m_inputComponent = dynamic_cast<InputComponent*>(addComponent(new InputComponent()));
 	m_moveComponent = dynamic_cast<MoveComponent*>(addComponent(new MoveComponent()));
 	m_moveComponent->setMaxSpeed(100);
 	m_spriteComponent = dynamic_cast<SpriteComponent*>(addComponent(new SpriteComponent("Images/player.png")));
-
+	m_playerLifeComponent = dynamic_cast<PlayerLifeComponent*>(addComponent(new PlayerLifeComponent("Images/player.png")));
 
 	m_lives = 3;
 
@@ -37,25 +38,23 @@ void Player::update(float deltaTime)
 
 	MathLibrary::Vector2 moveDirection = m_inputComponent->getMoveAxis();
 
-	if (m_lives <= 2)
+	//player rotation
+	if (m_moveComponent->getVelocity().getMagnitude() > 0)
 	{
-		removeLives();
+		getTransform()->setForward(m_moveComponent->getVelocity());
 	}
+
+	m_moveComponent->setVelocity(moveDirection.getNormalized() * 500);
 
 	//If their lives equal zero
 	if (m_lives <= 0)
 	{
+		//m_playerLifeComponent->removeLife3();
+
 		//removes the player from the scene
 		Engine::getCurrentScene()->removeActor(this);
 		Engine::CloseApplication();
 	}
-
-	//player rotation
-	if (m_moveComponent->getVelocity().getMagnitude() > 0)
-		getTransform()->setForward(m_moveComponent->getVelocity());
-
-	m_moveComponent->setVelocity(moveDirection.getNormalized() * 500);
-
 }
 
 void Player::draw()
@@ -69,25 +68,16 @@ void Player::onCollision(Actor* actor)
 	if (actor->getName() == "Enemy")
 	{
 		std::cout << "Playercollision" << std::endl;
+
+		if (m_lives == 2)
+		{
+			m_playerLifeComponent->removeLife1();
+		}
 		m_lives--;
+
 	}
 }
 
-void Player::removeLives(PlayerLives* actor)
-{
-	if (actor->getName() == "Life1")
-	{
-		Engine::getCurrentScene()->removeActor(this);
-	}
-	else if (actor->getName() == "Life2")
-	{
-		Engine::getCurrentScene()->removeActor(this);
-	}
-	else if (actor->getName() == "Life3")
-	{
-		Engine::getCurrentScene()->removeActor(this);
-	}
-}
 
 
 

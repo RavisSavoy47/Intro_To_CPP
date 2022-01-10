@@ -3,7 +3,7 @@
 class InputComponent;
 class MoveComponent;
 class SpriteComponent;
-class PlayerLives;
+class PlayerLifeComponent;
 
 class Player :
 	public Actor
@@ -21,12 +21,12 @@ public:
 	void update(float deltaTime) override;
 	void draw() override;
 	void onCollision(Actor* actor) override;
-	void removeLives(PlayerLives* actor);
 
 private:
 	InputComponent* m_inputComponent;
 	MoveComponent* m_moveComponent;
 	SpriteComponent* m_spriteComponent;
+	PlayerLifeComponent* m_playerLifeComponent;
 	int m_lives;
 };
 
