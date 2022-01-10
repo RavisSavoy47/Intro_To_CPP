@@ -8,8 +8,9 @@
 
 void PracticeScene::start()
 { 
-	Player* player = new Player(100, 50, "Player");
+	Player* player = new Player(350, 900, "Player");
 	player->getTransform()->setScale({ 50, 50 });
+	player->getTransform()->setForward({ 0,-1 });
 	addActor(player);
 
 	//Enemy* enemy = new Enemy(500, 200, 110);
@@ -18,8 +19,6 @@ void PracticeScene::start()
 	EnemySpanner* spawner = new EnemySpanner();
 	addActor(spawner);
 
-	Bullet* bullet = new Bullet(100, player,"bullet");
-	addActor(bullet);
 	
 
 }

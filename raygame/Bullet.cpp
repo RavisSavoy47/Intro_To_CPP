@@ -4,7 +4,7 @@
 #include "SpriteComponent.h"
 #include "Engine.h"
 
-Bullet::Bullet(float maxSpeed, Actor* owner, const char* name) : Actor::Actor(0, 0, name)
+Bullet::Bullet(float maxSpeed, Actor* owner, const char* name = "Bullet") : Actor::Actor(0, 0, name)
 {
 	getTransform()->setScale({ 50,50 });
 	getTransform()->setWorldPostion(owner->getTransform()->getWorldPosition());

@@ -17,7 +17,7 @@ void InputShotComponent::update(float deltaTime)
 	m_timer += deltaTime;
 	if (RAYLIB_H::IsKeyDown(RAYLIB_H::KEY_SPACE ))
 	{
-		if (m_timer > .80f)
+		if (m_timer > .1f)
 		{
 			Engine::getCurrentScene()->addActor(m_bullet);
 			m_timer = 0;
