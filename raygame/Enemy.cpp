@@ -1,21 +1,24 @@
 #include "Enemy.h"
 #include "MoveComponent.h"
 #include "SpriteComponent.h"
+#include "AutoShotComponent.h"
 #include "Transform2D.h"
 #include "Engine.h"
 #include "CircleCollider.h"
-
-#include <iostream>
 
 Enemy::Enemy(float x, float y, int maxSpeed, const char* name) : Actor::Actor(x, y, name)
 {
 	m_movement = dynamic_cast<MoveComponent*>(addComponent(new MoveComponent()));
 	m_sprite = dynamic_cast<SpriteComponent*>(addComponent(new SpriteComponent("Images/enemy.png")));
 
+	m_shotComp = dynamic_cast<AutoShotComponent*>(addComponent(new AutoShotComponent("EnemyBullet")));
+	m_shotComp->assignOwner(this);
+
 	getTransform()->setScale({ 50,50 });
 
 	m_maxSpeed = maxSpeed;
 }
+
 
 void Enemy::start()
 {
@@ -37,7 +40,6 @@ void Enemy::update(float deltaTime)
 { 
 	Actor::update(deltaTime);
 	m_timer += deltaTime;
-	std::cout << m_timer << std::endl;
 	if (m_timer >= 5.0f)
 		Engine::destroy(this);
 	

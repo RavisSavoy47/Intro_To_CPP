@@ -3,6 +3,7 @@
 #include "MoveComponent.h"
 #include "SpriteComponent.h"
 #include "Transform2D.h"
+#include "InputShotComponent.h"
 #include "CircleCollider.h"
 #include <iostream>
 #include "Engine.h"
@@ -15,6 +16,8 @@ void Player::start()
 	m_moveComponent = dynamic_cast<MoveComponent*>(addComponent(new MoveComponent()));
 	m_moveComponent->setMaxSpeed(100);
 	m_spriteComponent = dynamic_cast<SpriteComponent*>(addComponent(new SpriteComponent("Images/player.png")));
+	m_shots = dynamic_cast<InputShotComponent*>(addComponent(new InputShotComponent("playerBullet")));
+	m_shots->assignOwner(this);
 
 	getTransform()->setScale({ 50,50 });
 
