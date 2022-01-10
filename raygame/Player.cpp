@@ -18,6 +18,8 @@ void Player::start()
 	m_spriteComponent = dynamic_cast<SpriteComponent*>(addComponent(new SpriteComponent("Images/player.png")));
 	m_shots = dynamic_cast<InputShotComponent*>(addComponent(new InputShotComponent("playerBullet")));
 	m_shots->assignOwner(this);
+	CircleCollider* circleCollider = new CircleCollider({ 30, this });
+	this->setCollider(circleCollider);
 
 	getTransform()->setScale({ 50,50 });
 
@@ -37,7 +39,7 @@ void Player::update(float deltaTime)
 	if (m_moveComponent->getVelocity().getMagnitude() > 0)
 		getTransform()->setForward(m_moveComponent->getVelocity());
 
-	m_moveComponent->setVelocity(moveDirection.getNormalized() * 200);
+	m_moveComponent->setVelocity(moveDirection.getNormalized() * 1000);
 
 }
 
