@@ -7,9 +7,7 @@
 #include "Transform2D.h"
 #include "UIText.h"
 #include "CircleCollider.h"
-#include <iostream>
-#include "string.h"
-
+#include "PlayerLives.h"
 void MainScene::start()
 {
     Player* player = new Player(100, 400, "Player");
@@ -34,7 +32,13 @@ void MainScene::start()
     addActor(spawner);*/
 
     //strint
-    UIText* UI = new UIText(600, 10, "Health", "Lives", 20, 20, 75, RAYWHITE);
+    UIText* UI = new UIText(600, 10, "Health", "Lives", 20, 20, 50, RAYWHITE);
     addUIElement(UI);
 
+    PlayerLives* Life1 = new PlayerLives(185, 770, "Life1");
+    addActor(Life1);
+    PlayerLives* Life2 = new PlayerLives(230, 770, "Life2");
+    addActor(Life2);
+    PlayerLives* Life3 = new PlayerLives(280, 770, "Life3");
+    addActor(Life3);
 }

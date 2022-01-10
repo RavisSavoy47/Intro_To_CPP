@@ -4,7 +4,6 @@
 #include "Transform2D.h"
 #include "Engine.h"
 #include "CircleCollider.h"
-
 #include <iostream>
 
 Enemy::Enemy(float x, float y, int maxSpeed, const char* name) : Actor::Actor(x, y, name)
@@ -26,7 +25,7 @@ void Enemy::start()
 	m_movement->setVelocity(moveDirection * m_maxSpeed);
 
 	//Sets the amount of lives 
-	m_maxLives = 3;
+	m_lives = 3;
 
 	m_timer = 0;
 }
@@ -36,7 +35,7 @@ void Enemy::update(float deltaTime)
 	Actor::update(deltaTime);
 
 	//If their lives equal zero
-	if (m_maxLives <= 0)
+	if (m_lives <= 0)
 	{
 		//removes the enemy from the scene
 		Engine::getCurrentScene()->removeActor(this);
@@ -55,7 +54,7 @@ void Enemy::onCollision(Actor* actor)
 	{
 		std::cout << "Enemycollision" << std::endl;
 		actor->getTransform()->setWorldPostion({ 50, 50 });
-		m_maxLives--;
+		m_lives--;
 	}
 }
 

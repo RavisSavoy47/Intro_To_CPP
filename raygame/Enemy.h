@@ -29,7 +29,7 @@ private:
     Bullet* m_bullets;
 
 
-    float m_maxLives;
+    float m_lives;
 
     int m_timer;
 

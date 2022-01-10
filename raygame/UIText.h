@@ -2,6 +2,8 @@
 #include "Actor.h"
 #include <raylib.h>
 
+class Player;
+
 class UIText :
 	public Actor
 {
@@ -20,6 +22,8 @@ public:
 	void start() override;
 	void update(float deltaTime) override;
 	void draw() override;
+
+private:
 
 };
 

@@ -6,6 +6,8 @@
 #include "CircleCollider.h"
 #include <iostream>
 #include "Engine.h"
+#include "UIText.h"
+#include "PlayerLives.h"
 
 void Player::start()
 {
@@ -16,7 +18,8 @@ void Player::start()
 	m_moveComponent->setMaxSpeed(100);
 	m_spriteComponent = dynamic_cast<SpriteComponent*>(addComponent(new SpriteComponent("Images/player.png")));
 
-	m_maxLives = 30;
+
+	m_lives = 3;
 
 	getTransform()->setScale({ 50,50 });
 
@@ -26,14 +29,21 @@ void Player::start()
 	//Set position clamps(boundies)
 }
 
+
+
 void Player::update(float deltaTime)
 {
 	Actor::update(deltaTime);
 
 	MathLibrary::Vector2 moveDirection = m_inputComponent->getMoveAxis();
 
+	if (m_lives <= 2)
+	{
+		removeLives();
+	}
+
 	//If their lives equal zero
-	if (m_maxLives <= 0)
+	if (m_lives <= 0)
 	{
 		//removes the player from the scene
 		Engine::getCurrentScene()->removeActor(this);
@@ -59,9 +69,27 @@ void Player::onCollision(Actor* actor)
 	if (actor->getName() == "Enemy")
 	{
 		std::cout << "Playercollision" << std::endl;
-		m_maxLives--;
+		m_lives--;
 	}
 }
+
+void Player::removeLives(PlayerLives* actor)
+{
+	if (actor->getName() == "Life1")
+	{
+		Engine::getCurrentScene()->removeActor(this);
+	}
+	else if (actor->getName() == "Life2")
+	{
+		Engine::getCurrentScene()->removeActor(this);
+	}
+	else if (actor->getName() == "Life3")
+	{
+		Engine::getCurrentScene()->removeActor(this);
+	}
+}
+
+
 
 
 
