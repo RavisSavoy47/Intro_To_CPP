@@ -4,6 +4,8 @@ class InputComponent;
 class MoveComponent;
 class SpriteComponent;
 class InputShotComponent;
+class RingAround;
+class RotationActor;
 
 class Player :
 	public Actor
@@ -13,6 +15,7 @@ public:
 	Player() : Actor::Actor(0, 0, "defult") {};
 	//Defult DeConstructor 
 	~Player() { delete m_inputComponent, m_moveComponent, m_spriteComponent, m_shots;  };
+	//Player Decloration 
 	Player(float x, float y, const char* name) : Actor::Actor(x, y, name) {}
 
 	void start() override;
@@ -25,5 +28,12 @@ private:
 	MoveComponent* m_moveComponent;
 	SpriteComponent* m_spriteComponent;
 	InputShotComponent* m_shots;
+
+	RotationActor* m_rotate;
+
+	RingAround* m_upgrade;
+
+	int m_maxUpgradeCount;
+	int m_upgradeCount;
 };
 

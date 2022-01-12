@@ -59,6 +59,10 @@ void Enemy::onCollision(Actor* actor)
 		std::cout << "collision" << std::endl;
 		//actor->getTransform()->setWorldPostion({ 50, 50 });
 	}
+	if (actor->getName() == "playerBullet")
+	{
+		Engine::destroy(this);
+	}
 }
 
 

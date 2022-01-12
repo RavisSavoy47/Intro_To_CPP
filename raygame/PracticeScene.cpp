@@ -17,12 +17,6 @@ void PracticeScene::start()
 	//Enemy* enemy = new Enemy(500, 200, 110);
 	//addActor(enemy);
 
-	RotationActor* rotate = new RotationActor(player);
-	addActor(rotate);
-
-	RingAround* upgrade = new RingAround(rotate,"RingAround");
-	addActor(upgrade);
-
 	Spawner * spawner = new Spawner();
 	addActor(spawner);
 

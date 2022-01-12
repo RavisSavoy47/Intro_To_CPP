@@ -5,11 +5,11 @@
 #include "Transform2D.h"
 #include "Engine.h"
 
-Upgrade::Upgrade(float x, float y, int maxSpeed, const char* name) : Actor::Actor(x, y, name)
+Upgrade::Upgrade(float x, float y, int maxSpeed, const char* path, const char* name) : Actor::Actor(x, y, name)
 {
 
 	m_moveComp = dynamic_cast<MoveComponent*>(addComponent(new MoveComponent()));
-	m_spriteComp = dynamic_cast<SpriteComponent*>(addComponent(new SpriteComponent("Images/ringAround.png")));
+	m_spriteComp = dynamic_cast<SpriteComponent*>(addComponent(new SpriteComponent(path)));
 
 	getTransform()->setScale({ 25,25 });
 
@@ -33,6 +33,6 @@ void Upgrade::update(float deltaTime)
 	Actor::update(deltaTime);
 	m_timer += deltaTime;
 	getTransform()->setRotation(m_timer);
-	if (m_timer >= 5.0f)
+	if (m_timer >= 10.0f)
 		Engine::destroy(this);
 }

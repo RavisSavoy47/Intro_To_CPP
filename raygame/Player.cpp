@@ -4,20 +4,25 @@
 #include "SpriteComponent.h"
 #include "Transform2D.h"
 #include "InputShotComponent.h"
+#include "RotationActor.h"
 #include "CircleCollider.h"
+#include "RingAround.h"
 #include <iostream>
 #include "Engine.h"
 
 void Player::start()
 {
+	//Calls the original Actor start 
 	Actor::start();
 
+	//Initialze default values
 	m_inputComponent = dynamic_cast<InputComponent*>(addComponent(new InputComponent()));
 	m_moveComponent = dynamic_cast<MoveComponent*>(addComponent(new MoveComponent()));
-	m_moveComponent->setMaxSpeed(100);
 	m_spriteComponent = dynamic_cast<SpriteComponent*>(addComponent(new SpriteComponent("Images/player.png")));
 	m_shots = dynamic_cast<InputShotComponent*>(addComponent(new InputShotComponent("playerBullet")));
+	//Assignes owner to be this actor 
 	m_shots->assignOwner(this);
+
 	CircleCollider* circleCollider = new CircleCollider({ 30, this });
 	this->setCollider(circleCollider);
 
@@ -56,7 +61,17 @@ void Player::onCollision(Actor* actor)
 		std::cout << "collision" << std::endl;
 		//Engine::getCurrentScene()->removeActor(actor);
 	}
-	if (actor->getName() == "RingAroundUpgrade");
+	if (actor->getName() == "RingAroundUpgrade")
+	{
+		Engine::destroy(actor);
+			m_rotate = new RotationActor(this);
+			Engine::getCurrentScene()->addActor(m_rotate);
+
+			m_upgrade = new RingAround(m_rotate, "RingAround");
+			Engine::getCurrentScene()->addActor(m_upgrade);
+
+			m_upgradeCount++;
+	}
 }
 
 

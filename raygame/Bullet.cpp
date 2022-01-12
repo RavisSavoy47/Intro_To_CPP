@@ -2,12 +2,17 @@
 #include "Transform2D.h"
 #include "MoveComponent.h"
 #include "SpriteComponent.h"
+#include "CircleCollider.h"
 #include "Engine.h"
 
 Bullet::Bullet(float maxSpeed, Actor* owner, const char* name = "Bullet") : Actor::Actor(0, 0, name)
 {
 	getTransform()->setScale({ 50,50 });
 	getTransform()->setWorldPostion(owner->getTransform()->getWorldPosition());
+
+	CircleCollider* circleCollider = new CircleCollider({ 30, this });
+	this->setCollider(circleCollider);
+
 	m_owner = owner;
 	m_maxSpeed = maxSpeed;
 }
