@@ -10,6 +10,9 @@
 #include "PlayerLives.h"
 #include "ScoreManager.h"
 
+/// <summary>
+/// The scene where all the actors are displayed 
+/// </summary>
 void MainScene::start()
 {
     Player* player = new Player(350, 900, "Player");
@@ -26,7 +29,6 @@ void MainScene::start()
     addUIElement(CurrentScore);
 
     UIText* UIScore = new UIText(600, 10, "Score", "Score", 20, 20, 40, RAYWHITE);
-    
 
     ScoreManager* ScoreDisplay = new ScoreManager(350, 900, "Score");
     ScoreDisplay->setUIText(UIScore);

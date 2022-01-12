@@ -11,6 +11,8 @@
 #include "PlayerLifeComponent.h"
 #include <iostream>
 #include "Engine.h"
+#include "UIText.h"
+#include "raylib.h"
 
 void Player::start()
 {
@@ -49,24 +51,28 @@ void Player::update(float deltaTime)
 		getTransform()->setForward(m_moveComponent->getVelocity());
 
 	m_moveComponent->setVelocity(moveDirection.getNormalized() * 1000);
-
-	if (m_lives <= 0)
-		Engine::CloseApplication();
 }
 
-void Player::draw()
-{
-	Actor::draw();
-	getCollider()->draw();
-}
-
+/// <summary>
+/// When the collides with another actor
+/// </summary>
+/// <param name="actor"></param>
 void Player::onCollision(Actor* actor)
 {
+	/// <summary>
+	/// when the player collides with an enemy
+	/// </summary>
+	/// <param name="actor"></param>
 	if (actor->getName() == "Enemy")
 	{
+		//Displays collision when they collide with enemy
 		std::cout << "collision" << std::endl;
-		//Engine::getCurrentScene()->removeActor(actor);
 	}
+
+	/// <summary>
+	/// Attaches the upgrabes to the player and removes the upgrade
+	/// </summary>
+	/// <param name="actor"></param>
 	if (actor->getName() == "RingAroundUpgrade")
 	{
 		Engine::destroy(actor);
@@ -78,33 +84,63 @@ void Player::onCollision(Actor* actor)
 
 		m_upgradeCount++;
 	}
+
+	/// <summary>
+	/// Adds a shield to the player when the player collides to the actor
+	/// </summary>
+	/// <param name="actor"></param>
 	if (actor->getName() == "ShieldUpgrade")
 	{
+		//removes the actor off collision
 		Engine::destroy(actor);
+		//if their is no sheild 
 		if (m_shield == nullptr)
 		{
+			//Adds a sheild to the player
 			m_shield = new Shield(this, "Shield");
 			Engine::getCurrentScene()->addActor(m_shield);
 		}
 	}
+
+	/// <summary>
+	/// When the player collides with the enemy's bullet 
+	/// </summary>
+	/// <param name="actor"></param>
 	if (actor->getName() == "enemyBullet")
 	{
+		//removes the enemy bullet
 		Engine::destroy(actor);
 		m_shield = nullptr;
 		
+		//checks the plays health 
 		if (m_lives <= 3)
 		{
+			//removes the player life sprite
 			m_playerLife->removeLife3();
 		}
+		//checks the plays health 
 		if (m_lives <= 2)
 		{
+			//removes the player life sprite
 			m_playerLife->removeLife2();
 		}
+		//checks the plays health 
 		if (m_lives <= 1)
 		{
+			//removes the player life sprite
 			m_playerLife->removeLife1();
 		}
+		//checks the plays health 
+		if (m_lives <= 0)
+		{
+			//removes the player
+			Engine::destroy(this);
+			//Displays the game over text
+			UIText* End = new UIText(10, 300, "Score", "GameOver", 20, 20, 100, RAYWHITE);
+			Engine::getCurrentScene()->addUIElement(End);
+		}
 		else
+			//decrements the player lives
 			m_lives--;
 	}
 

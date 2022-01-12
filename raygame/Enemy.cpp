@@ -17,11 +17,11 @@ Enemy::Enemy(float x, float y, int maxSpeed, const char* name) : Actor::Actor(x,
 	//attcehs a png to the location of this actor 
 	m_sprite = dynamic_cast<SpriteComponent*>(addComponent(new SpriteComponent("Images/enemy.png")));
 
-	//Creats 
+	//attaches an automatic shooting to the actor
 	m_shotComp = dynamic_cast<AutoShotComponent*>(addComponent(new AutoShotComponent("enemyBullet")));
 	m_shotComp->assignOwner(this);
 
-	
+	//sets the enemy scale
 	getTransform()->setScale({ 50,50 });
 
 	CircleCollider* circleCollider = new CircleCollider({ 30, this });
@@ -30,7 +30,9 @@ Enemy::Enemy(float x, float y, int maxSpeed, const char* name) : Actor::Actor(x,
 	m_maxSpeed = maxSpeed;
 }
 
-
+/// <summary>
+/// How the enemy moves off start
+/// </summary>
 void Enemy::start()
 {
 	Actor::start();
@@ -41,12 +43,10 @@ void Enemy::start()
 
 	m_timer = 0;
 }
-
-void Enemy::draw()
-{
-	Actor::draw();
-	getCollider()->draw();
-}
+/// <summary>
+/// Updates its timer and sets a time to destory the actor 
+/// </summary>
+/// <param name="deltaTime"></param>
 void Enemy::update(float deltaTime)
 {
 	Actor::update(deltaTime);
@@ -55,17 +55,27 @@ void Enemy::update(float deltaTime)
 		Engine::destroy(this);
 }
 	
-
+/// <summary>
+/// when the actor collides with another actor
+/// </summary>
+/// <param name="actor"></param>
 void Enemy::onCollision(Actor* actor)
 {
+	/// <summary>
+	/// Every time the enemy collies with a player
+	/// </summary>
+	/// <param name="actor"></param>
 	if (actor->getName() == "Player")
 	{
 		std::cout << "collision" << std::endl;
-		//actor->getTransform()->setWorldPostion({ 50, 50 });
 	}
-
+	/// <summary>
+	/// Every time the enemy collies with a player's bullet
+	/// </summary>
+	/// <param name="actor"></param>
 	if (actor->getName() == "playerBullet")
 	{
+		//Deletes the enemy and adds the score
  		ScoreManager::Score += 10;
 		Engine::destroy(this);
 	}

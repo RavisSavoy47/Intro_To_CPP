@@ -19,7 +19,6 @@ public:
     
     void start() override;
     void update(float deltaTime) override;
-    void draw() override;
     void onCollision(Actor* actor) override;
     void setScoreManager(ScoreManager* manager) { m_scoreManager = manager; }
     

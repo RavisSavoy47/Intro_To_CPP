@@ -22,7 +22,6 @@ public:
 
 	void start() override;
 	void update(float deltaTime) override;
-	void draw() override;
 	void onCollision(Actor* actor) override;
 
 private:
@@ -30,13 +29,9 @@ private:
 	MoveComponent* m_moveComponent;
 	SpriteComponent* m_spriteComponent;
 	InputShotComponent* m_shots;
-
 	RotationActor* m_rotate;
-
 	RingAround* m_upgrade;
-
 	Shield* m_shield;
-
 	PlayerLifeComponent* m_playerLife;
 
 	int m_lives;
