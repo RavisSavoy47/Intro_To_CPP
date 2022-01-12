@@ -6,6 +6,7 @@ class SpriteComponent;
 class InputShotComponent;
 class RingAround;
 class RotationActor;
+class Shield;
 
 class Player :
 	public Actor
@@ -32,6 +33,8 @@ private:
 	RotationActor* m_rotate;
 
 	RingAround* m_upgrade;
+
+	Shield* m_shield;
 
 	int m_maxUpgradeCount;
 	int m_upgradeCount;

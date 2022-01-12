@@ -5,6 +5,7 @@
 #include "Transform2D.h"
 #include "InputShotComponent.h"
 #include "RotationActor.h"
+#include "Shield.h"
 #include "CircleCollider.h"
 #include "RingAround.h"
 #include <iostream>
@@ -25,6 +26,8 @@ void Player::start()
 
 	CircleCollider* circleCollider = new CircleCollider({ 30, this });
 	this->setCollider(circleCollider);
+
+	
 
 	getTransform()->setScale({ 50,50 });
 
@@ -64,13 +67,26 @@ void Player::onCollision(Actor* actor)
 	if (actor->getName() == "RingAroundUpgrade")
 	{
 		Engine::destroy(actor);
-			m_rotate = new RotationActor(this);
-			Engine::getCurrentScene()->addActor(m_rotate);
+		m_rotate = new RotationActor(this);
+		Engine::getCurrentScene()->addActor(m_rotate);
 
-			m_upgrade = new RingAround(m_rotate, "RingAround");
-			Engine::getCurrentScene()->addActor(m_upgrade);
+		m_upgrade = new RingAround(m_rotate, "RingAround");
+		Engine::getCurrentScene()->addActor(m_upgrade);
 
-			m_upgradeCount++;
+		m_upgradeCount++;
+	}
+	if (actor->getName() == "ShieldUpgrade")
+	{
+		Engine::destroy(actor);
+		if (m_shield == nullptr)
+		{
+			m_shield = new Shield(this, "Shield");
+			Engine::getCurrentScene()->addActor(m_shield);
+		}
+	}
+	if (actor->getName() == "enemyBullet")
+	{
+		m_shield = nullptr;
 	}
 }
 

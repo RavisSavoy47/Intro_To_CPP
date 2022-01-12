@@ -154,6 +154,7 @@
     <ClCompile Include="Collider.cpp" />
     <ClCompile Include="Component.cpp" />
     <ClCompile Include="Enemy.cpp" />
+    <ClCompile Include="Shield.cpp" />
     <ClCompile Include="SpawnerComponent.cpp" />
     <ClCompile Include="Spawner.cpp" />
     <ClCompile Include="Engine.cpp" />
@@ -182,6 +183,7 @@
     <ClInclude Include="Collider.h" />
     <ClInclude Include="Component.h" />
     <ClInclude Include="Enemy.h" />
+    <ClInclude Include="Shield.h" />
     <ClInclude Include="SpawnerComponent.h" />
     <ClInclude Include="Spawner.h" />
     <ClInclude Include="Engine.h" />

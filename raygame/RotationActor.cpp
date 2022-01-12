@@ -1,6 +1,5 @@
 #include "RotationActor.h"
 #include "Transform2D.h"
-#include "SpriteComponent.h"
 
 RotationActor::RotationActor(Actor* owner)
 {

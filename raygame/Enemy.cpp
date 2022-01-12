@@ -15,7 +15,7 @@ Enemy::Enemy(float x, float y, int maxSpeed, const char* name) : Actor::Actor(x,
 	m_sprite = dynamic_cast<SpriteComponent*>(addComponent(new SpriteComponent("Images/enemy.png")));
 
 	//Creats 
-	m_shotComp = dynamic_cast<AutoShotComponent*>(addComponent(new AutoShotComponent("EnemyBullet")));
+	m_shotComp = dynamic_cast<AutoShotComponent*>(addComponent(new AutoShotComponent("enemyBullet")));
 	m_shotComp->assignOwner(this);
 
 	getTransform()->setScale({ 50,50 });
