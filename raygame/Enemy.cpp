@@ -40,7 +40,6 @@ void Enemy::start()
 	m_movement->setVelocity(moveDirection * m_maxSpeed);
 
 	m_timer = 0;
-	m_score = 0;
 }
 
 void Enemy::draw()

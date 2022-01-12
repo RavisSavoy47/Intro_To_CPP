@@ -9,8 +9,6 @@
     <ClCompile Include="Collider.cpp" />
     <ClCompile Include="Component.cpp" />
     <ClCompile Include="Enemy.cpp" />
-    <ClCompile Include="EnemySpawnComponent.cpp" />
-    <ClCompile Include="EnemySpawner.cpp" />
     <ClCompile Include="Engine.cpp" />
     <ClCompile Include="InputComponent.cpp" />
     <ClCompile Include="InputShotComponent.cpp" />
@@ -18,8 +16,6 @@
     <ClCompile Include="MainScene.cpp" />
     <ClCompile Include="MoveComponent.cpp" />
     <ClCompile Include="Player.cpp" />
-    <ClCompile Include="PlayerLifeComponent.cpp" />
-    <ClCompile Include="PlayerLives.cpp" />
     <ClCompile Include="PracticeScene.cpp" />
     <ClCompile Include="Scene.cpp" />
     <ClCompile Include="SpriteComponent.cpp" />
@@ -28,6 +24,14 @@
     <ClCompile Include="UIText.cpp" />
     <ClCompile Include="ScoreComponent.cpp" />
     <ClCompile Include="ScoreManager.cpp" />
+    <ClCompile Include="Shield.cpp" />
+    <ClCompile Include="SpawnerComponent.cpp" />
+    <ClCompile Include="Spawner.cpp" />
+    <ClCompile Include="RingAround.cpp" />
+    <ClCompile Include="RotationActor.cpp" />
+    <ClCompile Include="Upgrade.cpp" />
+    <ClCompile Include="PlayerLives.cpp" />
+    <ClCompile Include="PlayerLifeComponent.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -81,14 +85,8 @@
     <ClCompile Include="PracticeScene.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Spawner.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="UIText.cpp">
       <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="SpawnerComponent.cpp">
-      <Filter>Source Files\Components</Filter>
     </ClCompile>
     <ClCompile Include="Bullet.cpp">
       <Filter>Source Files</Filter>
@@ -98,18 +96,6 @@
     </ClCompile>
     <ClCompile Include="AutoShotComponent.cpp">
       <Filter>Source Files\Components</Filter>
-    </ClCompile>
-    <ClCompile Include="RingAround.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="RotationActor.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Upgrade.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Shield.cpp">
-      <Filter>Source Files</Filter>
     </ClCompile>
     <ClInclude Include="AABBCollider.h" />
     <ClInclude Include="Actor.h" />
@@ -124,8 +110,6 @@
     <ClInclude Include="InputShotComponent.h" />
     <ClInclude Include="MainScene.h" />
     <ClInclude Include="Player.h" />
-    <ClInclude Include="PlayerLifeComponent.h" />
-    <ClInclude Include="PlayerLives.h" />
     <ClInclude Include="PracticeScene.h" />
     <ClInclude Include="Scene.h" />
     <ClInclude Include="SpriteComponent.h" />
@@ -185,14 +169,8 @@
     <ClInclude Include="PracticeScene.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Spawner.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="UIText.h">
       <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="SpawnerComponent.h">
-      <Filter>Source Files\Components</Filter>
     </ClInclude>
     <ClInclude Include="Bullet.h">
       <Filter>Header Files</Filter>
@@ -203,17 +181,13 @@
     <ClInclude Include="AutoShotComponent.h">
       <Filter>Source Files\Components</Filter>
     </ClInclude>
-    <ClInclude Include="RingAround.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="RotationActor.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Upgrade.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Shield.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
+    <ClInclude Include="Shield.h" />
+    <ClInclude Include="SpawnerComponent.h" />
+    <ClInclude Include="Spawner.h" />
+    <ClInclude Include="RingAround.h" />
+    <ClInclude Include="RotationActor.h" />
+    <ClInclude Include="Upgrade.h" />
+    <ClInclude Include="PlayerLives.h" />
+    <ClInclude Include="PlayerLifeComponent.h" />
   </ItemGroup>
 </Project>
