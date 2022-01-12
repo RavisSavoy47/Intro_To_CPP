@@ -3,7 +3,6 @@
 class InputComponent;
 class MoveComponent;
 class SpriteComponent;
-class PlayerLifeComponent;
 class InputShotComponent;
 class RingAround;
 class RotationActor;
@@ -20,8 +19,6 @@ public:
 	//Player Decloration 
 	Player(float x, float y, const char* name) : Actor::Actor(x, y, name) {}
 
-	int getLives() { return m_lives; };
-
 	void start() override;
 	void update(float deltaTime) override;
 	void draw() override;
@@ -31,8 +28,6 @@ private:
 	InputComponent* m_inputComponent;
 	MoveComponent* m_moveComponent;
 	SpriteComponent* m_spriteComponent;
-	PlayerLifeComponent* m_playerLifeComponent;
-	int m_lives;
 	InputShotComponent* m_shots;
 
 	RotationActor* m_rotate;
