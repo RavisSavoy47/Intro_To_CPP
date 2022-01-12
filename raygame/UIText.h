@@ -2,8 +2,6 @@
 #include "Actor.h"
 #include <raylib.h>
 
-class Player;
-
 class UIText :
 	public Actor
 {
@@ -20,10 +18,8 @@ public:
 	Color m_fontColor;
 
 	void start() override;
-	void update(float deltaTime) override;
-	void draw() override;
 
-private:
+	void draw() override;
 
 };
 
