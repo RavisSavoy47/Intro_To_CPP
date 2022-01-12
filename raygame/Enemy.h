@@ -35,5 +35,8 @@ private:
     //Keeps tabs on it's life cycle 
     float m_timer;
 
+    float m_lives;
+
+
 };
 

@@ -75,7 +75,14 @@
       <Filter>Source Files\Components</Filter>
     </ClCompile>
     <ClCompile Include="Bullet.cpp">
+    <ClCompile Include="PlayerLives.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerLifeComponent.cpp">
+      <Filter>Source Files\Components</Filter>
+    </ClCompile>
+    <ClCompile Include="EnemySpawnComponent.cpp">
+      <Filter>Source Files\Components</Filter>
     </ClCompile>
     <ClCompile Include="InputShotComponent.cpp">
       <Filter>Source Files\Components</Filter>
@@ -156,6 +163,12 @@
     </ClInclude>
     <ClInclude Include="Bullet.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemySpawnComponent.h">
+      <Filter>Source Files\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerLifeComponent.h">
+      <Filter>Source Files\Components</Filter>
     </ClInclude>
     <ClInclude Include="InputShotComponent.h">
       <Filter>Source Files\Components</Filter>
