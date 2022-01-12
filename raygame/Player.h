@@ -3,6 +3,7 @@
 class InputComponent;
 class MoveComponent;
 class SpriteComponent;
+class PlayerLifeComponent;
 class InputShotComponent;
 
 class Player :
@@ -15,6 +16,8 @@ public:
 	~Player() { delete m_inputComponent, m_moveComponent, m_spriteComponent, m_shots;  };
 	Player(float x, float y, const char* name) : Actor::Actor(x, y, name) {}
 
+	int getLives() { return m_lives; };
+
 	void start() override;
 	void update(float deltaTime) override;
 	void draw() override;
@@ -24,6 +27,8 @@ private:
 	InputComponent* m_inputComponent;
 	MoveComponent* m_moveComponent;
 	SpriteComponent* m_spriteComponent;
+	PlayerLifeComponent* m_playerLifeComponent;
+	int m_lives;
 	InputShotComponent* m_shots;
 };
 

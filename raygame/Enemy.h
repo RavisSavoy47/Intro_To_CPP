@@ -30,5 +30,8 @@ private:
 
     float m_timer;
 
+    float m_lives;
+
+
 };
 
