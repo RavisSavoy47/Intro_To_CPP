@@ -5,6 +5,7 @@
 
 void InputShotComponent::start()
 {
+	Component::start();
 	m_timer = 0;
 }
 

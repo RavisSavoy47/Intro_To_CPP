@@ -167,6 +167,8 @@
     <ClCompile Include="PlayerLives.cpp" />
     <ClCompile Include="PracticeScene.cpp" />
     <ClCompile Include="Scene.cpp" />
+    <ClCompile Include="ScoreComponent.cpp" />
+    <ClCompile Include="ScoreManager.cpp" />
     <ClCompile Include="SpriteComponent.cpp" />
     <ClCompile Include="AutoShotComponent.cpp" />
     <ClCompile Include="Transform2D.cpp" />
@@ -193,6 +195,8 @@
     <ClInclude Include="PlayerLives.h" />
     <ClInclude Include="PracticeScene.h" />
     <ClInclude Include="Scene.h" />
+    <ClInclude Include="ScoreComponent.h" />
+    <ClInclude Include="ScoreManager.h" />
     <ClInclude Include="SpriteComponent.h" />
     <ClInclude Include="AutoShotComponent.h" />
     <ClInclude Include="Transform2D.h" />
