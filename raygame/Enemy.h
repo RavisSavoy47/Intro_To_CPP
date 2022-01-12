@@ -4,6 +4,7 @@
 class SpriteComponent;
 class MoveComponent;
 class AutoShotComponent;
+class ScoreManager;
 
 class Enemy :
     public Actor
@@ -20,7 +21,7 @@ public:
     void update(float deltaTime) override;
     void draw() override;
     void onCollision(Actor* actor) override;
-
+    void setScoreManager(ScoreManager* manager) { m_scoreManager = manager; }
     
 private:
     //Keeps track of the assigned speed 
@@ -31,6 +32,7 @@ private:
     MoveComponent* m_movement;
     //Componet created to automatically shot based of the users forwards 
     AutoShotComponent* m_shotComp;
+    ScoreManager* m_scoreManager;
 
     //Keeps tabs on it's life cycle 
     float m_timer;

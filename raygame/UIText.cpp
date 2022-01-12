@@ -6,7 +6,8 @@ UIText::UIText(float x, float y, const char* name, const char* text, int width, 
 	m_width = width;
 	m_height = height;
 	m_fontSize = fontSize;
-
+	posX = x;
+	posY = y;
 	m_font = GetFontDefault();
 	m_fontColor = fontColor;
 	fontColor = RAYWHITE;
@@ -22,5 +23,5 @@ void UIText::draw()
 	/*Rectangle rec = Rectangle();
 	DrawTextRec(m_font, m_text, rec, m_fontSize, 1, true, m_fontColor);*/
 
-	DrawText(m_text, 10, 700, m_fontSize, m_fontColor);
+	DrawText(m_text, posX, posY, m_fontSize, m_fontColor);
 }

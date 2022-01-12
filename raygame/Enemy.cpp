@@ -2,10 +2,13 @@
 #include "MoveComponent.h"
 #include "SpriteComponent.h"
 #include "AutoShotComponent.h"
+#include "ScoreComponent.h"
 #include "Transform2D.h"
 #include "Engine.h"
 #include "CircleCollider.h"
 #include <iostream>
+#include "UIText.h"
+#include "ScoreManager.h"
 
 Enemy::Enemy(float x, float y, int maxSpeed, const char* name) : Actor::Actor(x, y, name)
 {
@@ -18,6 +21,7 @@ Enemy::Enemy(float x, float y, int maxSpeed, const char* name) : Actor::Actor(x,
 	m_shotComp = dynamic_cast<AutoShotComponent*>(addComponent(new AutoShotComponent("enemyBullet")));
 	m_shotComp->assignOwner(this);
 
+	
 	getTransform()->setScale({ 50,50 });
 
 	CircleCollider* circleCollider = new CircleCollider({ 30, this });
@@ -36,6 +40,7 @@ void Enemy::start()
 	m_movement->setVelocity(moveDirection * m_maxSpeed);
 
 	m_timer = 0;
+	m_score = 0;
 }
 
 void Enemy::draw()
@@ -58,6 +63,11 @@ void Enemy::onCollision(Actor* actor)
 	{
 		std::cout << "collision" << std::endl;
 		//actor->getTransform()->setWorldPostion({ 50, 50 });
+	}
+
+	if (actor->getName() == "playerBullet")
+	{
+		ScoreManager::Score++;
 	}
 	if (actor->getName() == "playerBullet")
 	{

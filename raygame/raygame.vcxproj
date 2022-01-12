@@ -168,6 +168,8 @@
     <ClCompile Include="RingAround.cpp" />
     <ClCompile Include="RotationActor.cpp" />
     <ClCompile Include="Scene.cpp" />
+    <ClCompile Include="ScoreComponent.cpp" />
+    <ClCompile Include="ScoreManager.cpp" />
     <ClCompile Include="SpriteComponent.cpp" />
     <ClCompile Include="AutoShotComponent.cpp" />
     <ClCompile Include="Transform2D.cpp" />
@@ -196,6 +198,8 @@
     <ClInclude Include="RingAround.h" />
     <ClInclude Include="RotationActor.h" />
     <ClInclude Include="Scene.h" />
+    <ClInclude Include="ScoreComponent.h" />
+    <ClInclude Include="ScoreManager.h" />
     <ClInclude Include="SpriteComponent.h" />
     <ClInclude Include="AutoShotComponent.h" />
     <ClInclude Include="Transform2D.h" />
