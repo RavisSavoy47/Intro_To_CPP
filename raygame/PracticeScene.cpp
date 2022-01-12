@@ -9,8 +9,7 @@
 
 void PracticeScene::start()
 { 
-	Player* player = new Player(350, 900, "Player");
-	player->getTransform()->setScale({ .055, .055 });
+	Player* player = new Player(350, 900, "Player");	
 	player->getTransform()->setForward({ 0,-1 });
 	addActor(player);
 

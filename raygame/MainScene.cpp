@@ -12,34 +12,24 @@
 
 void MainScene::start()
 {
-    Player* player = new Player(100, 400, "Player");
+    Player* player = new Player(350, 900, "Player");
+    player->getTransform()->setForward({ 0,-1 });
     addActor(player);
 
-    CircleCollider* playercollider = new CircleCollider(30, player);
-    player->setCollider(playercollider);
+    Spawner* spawner = new Spawner();
+    addActor(spawner);
 
-    Enemy* enemy = new Enemy(200, 1, 1);
-    addActor(enemy);
-
-    CircleCollider* enemycollider = new CircleCollider(30, enemy);
-    enemy->setCollider(enemycollider);
-
-    /*EnemySpawner* spawner = new EnemySpawner();
-    addActor(spawner);*/
-
-    //strint
     UIText* UI = new UIText(10, 900, "Health", "Lives", 20, 20, 40, RAYWHITE);
     addUIElement(UI);
 
     UIText* CurrentScore = new UIText(450, 10, "CurrentScore", "Score", 20, 20, 40, RAYWHITE);
     addUIElement(CurrentScore);
 
-    UIText* UIScore = new UIText(650, 10, "Score", "Score", 20, 20, 40, RAYWHITE);
+    UIText* UIScore = new UIText(600, 10, "Score", "Score", 20, 20, 40, RAYWHITE);
     
 
     ScoreManager* ScoreDisplay = new ScoreManager(350, 900, "Score");
     ScoreDisplay->setUIText(UIScore);
-    enemy->setScoreManager(ScoreDisplay);
     addActor(ScoreDisplay);
-
+    
 }

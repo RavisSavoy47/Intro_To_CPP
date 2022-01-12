@@ -8,6 +8,7 @@
 #include "Shield.h"
 #include "CircleCollider.h"
 #include "RingAround.h"
+#include "PlayerLifeComponent.h"
 #include <iostream>
 #include "Engine.h"
 
@@ -21,16 +22,16 @@ void Player::start()
 	m_moveComponent = dynamic_cast<MoveComponent*>(addComponent(new MoveComponent()));
 	m_spriteComponent = dynamic_cast<SpriteComponent*>(addComponent(new SpriteComponent("Images/player.png")));
 	m_shots = dynamic_cast<InputShotComponent*>(addComponent(new InputShotComponent("playerBullet")));
+	m_playerLife = dynamic_cast<PlayerLifeComponent*>(addComponent(new PlayerLifeComponent()));
 	//Assignes owner to be this actor 
 	m_shots->assignOwner(this);
 
 	CircleCollider* circleCollider = new CircleCollider({ 30, this });
 	this->setCollider(circleCollider);
 
-	
-
 	getTransform()->setScale({ 50,50 });
 
+	m_lives = 3;
 
 	//Set spawn point 
 	//Set move speed
@@ -49,6 +50,8 @@ void Player::update(float deltaTime)
 
 	m_moveComponent->setVelocity(moveDirection.getNormalized() * 1000);
 
+	if (m_lives <= 0)
+		Engine::CloseApplication();
 }
 
 void Player::draw()
@@ -86,8 +89,26 @@ void Player::onCollision(Actor* actor)
 	}
 	if (actor->getName() == "enemyBullet")
 	{
+		Engine::destroy(actor);
 		m_shield = nullptr;
+		
+		if (m_lives <= 3)
+		{
+			m_playerLife->removeLife3();
+		}
+		if (m_lives <= 2)
+		{
+			m_playerLife->removeLife2();
+		}
+		if (m_lives <= 1)
+		{
+			m_playerLife->removeLife1();
+		}
+		else
+			m_lives--;
 	}
+
+
 }
 
 

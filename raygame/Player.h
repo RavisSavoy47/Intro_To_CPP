@@ -7,6 +7,7 @@ class InputShotComponent;
 class RingAround;
 class RotationActor;
 class Shield;
+class PlayerLifeComponent;
 
 class Player :
 	public Actor
@@ -36,6 +37,9 @@ private:
 
 	Shield* m_shield;
 
+	PlayerLifeComponent* m_playerLife;
+
+	int m_lives;
 	int m_maxUpgradeCount;
 	int m_upgradeCount;
 };

@@ -66,10 +66,7 @@ void Enemy::onCollision(Actor* actor)
 
 	if (actor->getName() == "playerBullet")
 	{
-		ScoreManager::Score++;
-	}
-	if (actor->getName() == "playerBullet")
-	{
+ 		ScoreManager::Score += 10;
 		Engine::destroy(this);
 	}
 }

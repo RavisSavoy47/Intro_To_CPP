@@ -8,7 +8,7 @@ Shield::Shield(Actor* owner, const char* name)
 {
 	m_owner = owner;
 	getTransform()->setScale({ 150,150 });
-	CircleCollider* circleCollider = new CircleCollider({ 30, this });
+	CircleCollider* circleCollider = new CircleCollider({ 75, this });
 	this->setCollider(circleCollider);
 	setName(name);
 }
