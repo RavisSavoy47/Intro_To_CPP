@@ -5,50 +5,42 @@
 
 void EnemySpawnComponent::start()
 {
-	m_timer = 0;
+	Component::start();
 	m_timeLimiter = 10;
-	m_enemy = new Enemy(1,1,100);
+
 }
 
 void EnemySpawnComponent::update(float deltaTime)
 {
 	DupilcateEnemies(deltaTime);
+
 }
 
+/// <summary>
+/// Creats a enemy every second once 
+/// per update 
+/// </summary>
+/// <param name="deltaTime">time deviated based off the CPU</param>
 void EnemySpawnComponent::DupilcateEnemies(float deltaTime)
 {
-	int rng = rand() % 10;
-
-	//if (m_timer >= 2)
-	//{
-		if (rng == 1)
-			Engine::getCurrentScene()->addActor(new Enemy(100, 1, 100));
-
-		if (rng == 2)
-			Engine::getCurrentScene()->addActor(new Enemy(200, 1, 100));
-
-		if (rng == 3)
-			Engine::getCurrentScene()->addActor(new Enemy(300, 1, 100));
-
-		if (rng == 4)
-			Engine::getCurrentScene()->addActor(new Enemy(400, 1, 100));
-
-		if (rng == 5)
-			Engine::getCurrentScene()->addActor(new Enemy(500, 1, 100));
-
-		if (rng == 6)
-			Engine::getCurrentScene()->addActor(new Enemy(600, 1, 100));
-
-		if (rng == 7)
-			Engine::getCurrentScene()->addActor(new Enemy(700, 1, 100));
-
-		if (rng == 8)
-			Engine::getCurrentScene()->addActor(new Enemy(800, 1, 100));
-
-		if (rng == 9)
-			Engine::getCurrentScene()->addActor(new Enemy(900, 1, 100));
-
-		m_timer = 0;
-	//}
+	// Gets a number between 2 and 30
+	int rng = rand() % 30 + 1 ;
+	//Creats an enemy
+	m_enemy = new Enemy(25 * rng, 5, 200);
+	//adds delta time to the timer once per frame 
 	m_timer += deltaTime;
+
+	//check to see if timer ends up beind=g greater then or equal to 
+	if (m_timer >= 1.0f)
+	{
+		// That new enemy to the scene 
+		Engine::getCurrentScene()->addActor(m_enemy);
+		//sets the timer back to 
+		m_timer = 0;
+	}
+	else
+		//Clears un-needed data
+		delete m_enemy;
+
+	
 }

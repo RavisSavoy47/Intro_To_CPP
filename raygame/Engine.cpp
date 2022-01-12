@@ -4,6 +4,7 @@
 #include "MainScene.h"
 #include "PracticeScene.h"
 
+
 bool Engine::m_applicationShouldClose = false;
 Scene** Engine::m_scenes = new Scene*;
 ActorArray Engine::m_actorsToDelete = ActorArray();
@@ -24,7 +25,7 @@ void Engine::start()
 {
 	//Initialize window
 	int screenWidth = 700;
-	int screenHeight = 800;
+	int screenHeight = 1000;
 	InitWindow(screenWidth, screenHeight, "Intro To C++");
 	SetTargetFPS(0);
 

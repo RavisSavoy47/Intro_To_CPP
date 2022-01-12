@@ -1,20 +1,29 @@
 #include "Enemy.h"
 #include "MoveComponent.h"
 #include "SpriteComponent.h"
+#include "AutoShotComponent.h"
+#include "ScoreComponent.h"
 #include "Transform2D.h"
 #include "Engine.h"
 #include "CircleCollider.h"
 #include <iostream>
+#include "UIText.h"
+#include "ScoreManager.h"
 
 Enemy::Enemy(float x, float y, int maxSpeed, const char* name) : Actor::Actor(x, y, name)
 {
 	m_movement = dynamic_cast<MoveComponent*>(addComponent(new MoveComponent()));
 	m_sprite = dynamic_cast<SpriteComponent*>(addComponent(new SpriteComponent("Images/enemy.png")));
 
+	m_shotComp = dynamic_cast<AutoShotComponent*>(addComponent(new AutoShotComponent("EnemyBullet")));
+	m_shotComp->assignOwner(this);
+
+	
 	getTransform()->setScale({ 50,50 });
 
 	m_maxSpeed = maxSpeed;
 }
+
 
 void Enemy::start()
 {
@@ -24,10 +33,13 @@ void Enemy::start()
 	getTransform()->setForward(moveDirection);
 	m_movement->setVelocity(moveDirection * m_maxSpeed);
 
+	
+
 	//Sets the amount of lives 
 	m_lives = 3;
 
 	m_timer = 0;
+	m_score = 0;
 }
 
 void Enemy::update(float deltaTime)
@@ -39,7 +51,12 @@ void Enemy::update(float deltaTime)
 	{
 		//removes the enemy from the scene
 		Engine::getCurrentScene()->removeActor(this);
+		ScoreManager::Score++;
 	}
+
+	m_timer += deltaTime;
+	if (m_timer >= 5.0f)
+		Engine::destroy(this);
 }
 
 void Enemy::draw()
@@ -56,6 +73,12 @@ void Enemy::onCollision(Actor* actor)
 		actor->getTransform()->setWorldPostion({ 50, 50 });
 		m_lives--;
 	}
+
+	if (actor->getName() == "playerBullet")
+	{
+		ScoreManager::Score++;
+	}
 }
+
 
 

@@ -4,6 +4,7 @@ class InputComponent;
 class MoveComponent;
 class SpriteComponent;
 class PlayerLifeComponent;
+class InputShotComponent;
 
 class Player :
 	public Actor
@@ -28,5 +29,6 @@ private:
 	SpriteComponent* m_spriteComponent;
 	PlayerLifeComponent* m_playerLifeComponent;
 	int m_lives;
+	InputShotComponent* m_shots;
 };
 
