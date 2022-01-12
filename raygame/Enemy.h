@@ -23,11 +23,16 @@ public:
 
     
 private:
+    //Keeps track of the assigned speed 
     int m_maxSpeed; 
+    //Illostrates the actor 
     SpriteComponent* m_sprite;
+    //Dedicated for movemnt 
     MoveComponent* m_movement;
+    //Componet created to automatically shot based of the users forwards 
     AutoShotComponent* m_shotComp;
 
+    //Keeps tabs on it's life cycle 
     float m_timer;
 
 };

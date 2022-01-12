@@ -9,9 +9,12 @@
 
 Enemy::Enemy(float x, float y, int maxSpeed, const char* name) : Actor::Actor(x, y, name)
 {
+	//Attaches movement to the actor
 	m_movement = dynamic_cast<MoveComponent*>(addComponent(new MoveComponent()));
+	//attcehs a png to the location of this actor 
 	m_sprite = dynamic_cast<SpriteComponent*>(addComponent(new SpriteComponent("Images/enemy.png")));
 
+	//Creats 
 	m_shotComp = dynamic_cast<AutoShotComponent*>(addComponent(new AutoShotComponent("EnemyBullet")));
 	m_shotComp->assignOwner(this);
 
