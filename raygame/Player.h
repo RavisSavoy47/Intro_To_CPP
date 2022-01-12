@@ -5,6 +5,9 @@ class MoveComponent;
 class SpriteComponent;
 class PlayerLifeComponent;
 class InputShotComponent;
+class RingAround;
+class RotationActor;
+class Shield;
 
 class Player :
 	public Actor
@@ -14,6 +17,7 @@ public:
 	Player() : Actor::Actor(0, 0, "defult") {};
 	//Defult DeConstructor 
 	~Player() { delete m_inputComponent, m_moveComponent, m_spriteComponent, m_shots;  };
+	//Player Decloration 
 	Player(float x, float y, const char* name) : Actor::Actor(x, y, name) {}
 
 	int getLives() { return m_lives; };
@@ -30,5 +34,14 @@ private:
 	PlayerLifeComponent* m_playerLifeComponent;
 	int m_lives;
 	InputShotComponent* m_shots;
+
+	RotationActor* m_rotate;
+
+	RingAround* m_upgrade;
+
+	Shield* m_shield;
+
+	int m_maxUpgradeCount;
+	int m_upgradeCount;
 };
 

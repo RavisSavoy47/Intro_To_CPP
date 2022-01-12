@@ -154,8 +154,9 @@
     <ClCompile Include="Collider.cpp" />
     <ClCompile Include="Component.cpp" />
     <ClCompile Include="Enemy.cpp" />
-    <ClCompile Include="EnemySpawnComponent.cpp" />
-    <ClCompile Include="EnemySpawner.cpp" />
+    <ClCompile Include="Shield.cpp" />
+    <ClCompile Include="SpawnerComponent.cpp" />
+    <ClCompile Include="Spawner.cpp" />
     <ClCompile Include="Engine.cpp" />
     <ClCompile Include="InputComponent.cpp" />
     <ClCompile Include="InputShotComponent.cpp" />
@@ -166,11 +167,14 @@
     <ClCompile Include="PlayerLifeComponent.cpp" />
     <ClCompile Include="PlayerLives.cpp" />
     <ClCompile Include="PracticeScene.cpp" />
+    <ClCompile Include="RingAround.cpp" />
+    <ClCompile Include="RotationActor.cpp" />
     <ClCompile Include="Scene.cpp" />
     <ClCompile Include="SpriteComponent.cpp" />
     <ClCompile Include="AutoShotComponent.cpp" />
     <ClCompile Include="Transform2D.cpp" />
     <ClCompile Include="UIText.cpp" />
+    <ClCompile Include="Upgrade.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AABBCollider.h" />
@@ -181,8 +185,9 @@
     <ClInclude Include="Collider.h" />
     <ClInclude Include="Component.h" />
     <ClInclude Include="Enemy.h" />
-    <ClInclude Include="EnemySpawnComponent.h" />
-    <ClInclude Include="EnemySpawner.h" />
+    <ClInclude Include="Shield.h" />
+    <ClInclude Include="SpawnerComponent.h" />
+    <ClInclude Include="Spawner.h" />
     <ClInclude Include="Engine.h" />
     <ClInclude Include="InputComponent.h" />
     <ClInclude Include="InputShotComponent.h" />
@@ -192,11 +197,14 @@
     <ClInclude Include="PlayerLifeComponent.h" />
     <ClInclude Include="PlayerLives.h" />
     <ClInclude Include="PracticeScene.h" />
+    <ClInclude Include="RingAround.h" />
+    <ClInclude Include="RotationActor.h" />
     <ClInclude Include="Scene.h" />
     <ClInclude Include="SpriteComponent.h" />
     <ClInclude Include="AutoShotComponent.h" />
     <ClInclude Include="Transform2D.h" />
     <ClInclude Include="UIText.h" />
+    <ClInclude Include="Upgrade.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

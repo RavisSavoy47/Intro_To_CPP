@@ -1,7 +1,7 @@
 #include "MainScene.h"
 #include "Player.h"
 #include "Enemy.h"
-#include "EnemySpawner.h"
+#include "Spawner.h"
 #include "SpriteComponent.h"
 #include "MoveComponent.h"
 #include "Transform2D.h"

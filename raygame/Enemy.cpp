@@ -9,10 +9,13 @@
 
 Enemy::Enemy(float x, float y, int maxSpeed, const char* name) : Actor::Actor(x, y, name)
 {
+	//Attaches movement to the actor
 	m_movement = dynamic_cast<MoveComponent*>(addComponent(new MoveComponent()));
+	//attcehs a png to the location of this actor 
 	m_sprite = dynamic_cast<SpriteComponent*>(addComponent(new SpriteComponent("Images/enemy.png")));
 
-	m_shotComp = dynamic_cast<AutoShotComponent*>(addComponent(new AutoShotComponent("EnemyBullet")));
+	//Creats 
+	m_shotComp = dynamic_cast<AutoShotComponent*>(addComponent(new AutoShotComponent("enemyBullet")));
 	m_shotComp->assignOwner(this);
 
 	getTransform()->setScale({ 50,50 });
@@ -73,6 +76,10 @@ void Enemy::onCollision(Actor* actor)
 		std::cout << "Enemycollision" << std::endl;
 		actor->getTransform()->setWorldPostion({ 50, 50 });
 		m_lives--;
+	}
+	if (actor->getName() == "playerBullet")
+	{
+		Engine::destroy(this);
 	}
 }
 
