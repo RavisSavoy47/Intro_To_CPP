@@ -45,6 +45,10 @@ void Enemy::update(float deltaTime)
 		//removes the enemy from the scene
 		Engine::getCurrentScene()->removeActor(this);
 	}
+
+	m_timer += deltaTime;
+	if (m_timer >= 5.0f)
+		Engine::destroy(this);
 }
 
 void Enemy::draw()
@@ -52,13 +56,6 @@ void Enemy::draw()
 	Actor::draw();
 	getCollider()->draw();
 }
-void Enemy::update(float deltaTime)
-{ 
-	Actor::update(deltaTime);
-	m_timer += deltaTime;
-	if (m_timer >= 5.0f)
-		Engine::destroy(this);
-	
 
 void Enemy::onCollision(Actor* actor)
 {
@@ -69,6 +66,6 @@ void Enemy::onCollision(Actor* actor)
 		m_lives--;
 	}
 }
-}
+
 
 
