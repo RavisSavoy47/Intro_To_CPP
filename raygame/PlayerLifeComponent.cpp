@@ -11,14 +11,9 @@ void PlayerLifeComponent::start()
 	life2 = new PlayerLives(230, 770, "Life2");
 	life3 = new PlayerLives(280, 770, "Life3");
 
-	life1->getTransform()->setScale({ 50,50 });
-	life2->getTransform()->setScale({ 50,50 });
-	life3->getTransform()->setScale({ 50,50 });
-
 	Engine::getCurrentScene()->addActor(life1);
 	Engine::getCurrentScene()->addActor(life2);
 	Engine::getCurrentScene()->addActor(life3);
-
 }
 
 void PlayerLifeComponent::removeLife1()

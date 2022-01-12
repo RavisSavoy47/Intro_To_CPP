@@ -18,7 +18,7 @@ void Player::start()
 	m_moveComponent = dynamic_cast<MoveComponent*>(addComponent(new MoveComponent()));
 	m_moveComponent->setMaxSpeed(100);
 	m_spriteComponent = dynamic_cast<SpriteComponent*>(addComponent(new SpriteComponent("Images/player.png")));
-	m_playerLifeComponent = dynamic_cast<PlayerLifeComponent*>(addComponent(new PlayerLifeComponent("Images/player.png")));
+	m_playerLifeComponent = dynamic_cast<PlayerLifeComponent*>(addComponent(new PlayerLifeComponent()));
 
 	m_lives = 3;
 
@@ -49,11 +49,9 @@ void Player::update(float deltaTime)
 	//If their lives equal zero
 	if (m_lives <= 0)
 	{
-		//m_playerLifeComponent->removeLife3();
-
 		//removes the player from the scene
-		Engine::getCurrentScene()->removeActor(this);
-		Engine::CloseApplication();
+		//Engine::getCurrentScene()->removeActor(this);
+		//Engine::CloseApplication();
 	}
 }
 
@@ -69,11 +67,20 @@ void Player::onCollision(Actor* actor)
 	{
 		std::cout << "Playercollision" << std::endl;
 
+		if (m_lives == 3)
+		{
+			m_playerLifeComponent->removeLife3();
+		}
 		if (m_lives == 2)
+		{
+			m_playerLifeComponent->removeLife2();
+		}
+		if (m_lives == 0)
 		{
 			m_playerLifeComponent->removeLife1();
 		}
-		m_lives--;
+		else
+			m_lives--;
 
 	}
 }

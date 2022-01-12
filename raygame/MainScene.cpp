@@ -35,16 +35,4 @@ void MainScene::start()
     //strint
     UIText* UI = new UIText(600, 10, "Health", "Lives", 20, 20, 50, RAYWHITE);
     addUIElement(UI);
-
-    PlayerLives* life1 = new PlayerLives(185, 770, "Life1");
-    PlayerLives* life2 = new PlayerLives(230, 770, "Life2");
-    PlayerLives* life3 = new PlayerLives(280, 770, "Life3");
-
-    life1->getTransform()->setScale({ 50,50 });
-    life2->getTransform()->setScale({ 50,50 });
-    life3->getTransform()->setScale({ 50,50 });
-
-    addActor(life1);
-    addActor(life2);
-    addActor(life3);
 }

@@ -9,6 +9,8 @@ public:
 	PlayerLifeComponent(const char* name = "PlayerLifeComponent") : Component::Component(name) {}
 
 	void start() override;
+
+
 	void removeLife1();
 	void removeLife2();
 	void removeLife3();
