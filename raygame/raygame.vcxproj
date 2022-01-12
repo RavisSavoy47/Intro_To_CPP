@@ -154,6 +154,8 @@
     <ClCompile Include="Collider.cpp" />
     <ClCompile Include="Component.cpp" />
     <ClCompile Include="Enemy.cpp" />
+    <ClCompile Include="PlayerLifeComponent.cpp" />
+    <ClCompile Include="PlayerLives.cpp" />
     <ClCompile Include="Shield.cpp" />
     <ClCompile Include="SpawnerComponent.cpp" />
     <ClCompile Include="Spawner.cpp" />
@@ -185,6 +187,8 @@
     <ClInclude Include="Collider.h" />
     <ClInclude Include="Component.h" />
     <ClInclude Include="Enemy.h" />
+    <ClInclude Include="PlayerLifeComponent.h" />
+    <ClInclude Include="PlayerLives.h" />
     <ClInclude Include="Shield.h" />
     <ClInclude Include="SpawnerComponent.h" />
     <ClInclude Include="Spawner.h" />

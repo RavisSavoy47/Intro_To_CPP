@@ -40,7 +40,6 @@ void MainScene::start()
     ScoreManager* ScoreDisplay = new ScoreManager(350, 900, "Score");
     ScoreDisplay->setUIText(UIScore);
     enemy->setScoreManager(ScoreDisplay);
-    enemy2->setScoreManager(ScoreDisplay);
     addActor(ScoreDisplay);
 
 }
