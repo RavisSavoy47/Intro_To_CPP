@@ -133,8 +133,7 @@ void Player::onCollision(Actor* actor)
 		//checks the plays health 
 		if (m_lives <= 0)
 		{
-			//removes the player
-			Engine::destroy(this);
+			Engine::setDeltaTimer(0);
 			//Displays the game over text
 			UIText* End = new UIText(10, 300, "Score", "GameOver", 20, 20, 100, RAYWHITE);
 			Engine::getCurrentScene()->addUIElement(End);

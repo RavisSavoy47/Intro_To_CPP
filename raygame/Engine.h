@@ -95,6 +95,12 @@ public:
     static int getScreenHeight() { return m_screenHeight; }
 
     /// <summary>
+    /// sets the time of delta time
+    /// </summary>
+    /// <param name="delata"></param>
+    static void setDeltaTimer(float delata) { m_currentTime = delata, m_deltaTime = delata, m_lastTime = delata; }
+
+    /// <summary>
     /// Begins the application
     /// </summary>
     void run();
@@ -114,4 +120,8 @@ private:
     static int m_currentSceneIndex;
     static const int m_screenWidth = 700;
     static const int m_screenHeight = 800;
+    static float m_currentTime;
+    static float m_lastTime;
+    static float m_deltaTime;
+
 };

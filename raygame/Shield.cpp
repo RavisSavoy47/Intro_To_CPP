@@ -36,7 +36,6 @@ void Shield::onCollision(Actor* actor)
 {
 	if (actor->getName() == "enemyBullet")
 	{
-		Engine::destroy(actor);
 		Engine::destroy(this);
 	}
 }
