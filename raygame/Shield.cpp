@@ -32,6 +32,10 @@ void Shield::update(float deltaTime)
 	getTransform()->setRotation(-m_timer);
 }
 
+/// <summary>
+/// If the actor collides with an enemy
+/// </summary>
+/// <param name="actor"></param>
 void Shield::onCollision(Actor* actor)
 {
 	//if the actor is named "enemyBullet". . .

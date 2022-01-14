@@ -11,6 +11,11 @@ public:
 	ScoreManager(float x, float y, const char* name) : Actor::Actor(x, y, name) {}
 	void start() override;
 	void update(float deltaTime) override;
+
+	/// <summary>
+	/// Sets the ui text 
+	/// </summary>
+	/// <param name="text"></param>
 	void setUIText(UIText* text) { m_scoreDisplay = text; }
 
 public:

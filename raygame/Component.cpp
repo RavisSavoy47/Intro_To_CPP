@@ -17,6 +17,10 @@ Component::~Component()
 {
 }
 
+/// <summary>
+/// Assigns the owner of the actor
+/// </summary>
+/// <param name="owner"></param>
 void Component::assignOwner(Actor* owner)
 {
 	if (getOwner())
@@ -25,6 +29,9 @@ void Component::assignOwner(Actor* owner)
 	m_owner = owner;
 }
 
+/// <summary>
+/// Set to be destoryed
+/// </summary>
 void Component::onDestroy()
 {
 }

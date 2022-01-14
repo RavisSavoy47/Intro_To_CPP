@@ -32,8 +32,18 @@ public:
 	/// <param name="other">The actor to check collision against</param>
 	bool checkCollision(Actor* other);
 
-
+	/// <summary>
+	/// Checks if a circle collides with another circle collider
+	/// </summary>
+	/// <param name="collider"></param>
+	/// <returns></returns>
 	virtual bool checkCollisionCircle(CircleCollider* collider) { return false; }
+
+	/// <summary>
+	/// Checks if AABB collides with another AABB collider
+	/// </summary>
+	/// <param name="collider"></param>
+	/// <returns></returns>
 	virtual bool checkCollisionAABB(AABBCollider* collider) { return false; }
 	virtual void draw() {}
 

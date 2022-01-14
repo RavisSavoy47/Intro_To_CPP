@@ -3,6 +3,9 @@
 
 int ScoreManager::Score = 0;
 
+/// <summary>
+/// Gives the actor asscess to score component 
+/// </summary>
 void ScoreManager::start()
 {
 	Actor::start();
