@@ -2,7 +2,6 @@
 #include "raylib.h"
 #include "Transform2D.h"
 #include "MainScene.h"
-#include "PracticeScene.h"
 #include <ctime>
 
 
@@ -76,6 +75,7 @@ void Engine::run()
 	while (!m_applicationShouldClose && !RAYLIB_H::WindowShouldClose())
 	{
 		//Calculate deltatime
+		//Meant to calculate delta 
 		m_currentTime = clock() / 1000.0f;
 		m_deltaTime = m_currentTime - m_lastTime;
 
