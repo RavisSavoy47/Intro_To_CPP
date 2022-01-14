@@ -32,8 +32,16 @@ void Shield::update(float deltaTime)
 	getTransform()->setRotation(-m_timer);
 }
 
+/// <summary>
+/// If the actor collides with an enemy
+/// </summary>
+/// <param name="actor"></param>
 void Shield::onCollision(Actor* actor)
 {
+	/// <summary>
+	/// If the actor collides with an enemy bullet
+	/// </summary>
+	/// <param name="actor"></param>
 	if (actor->getName() == "enemyBullet")
 	{
 		Engine::destroy(actor);

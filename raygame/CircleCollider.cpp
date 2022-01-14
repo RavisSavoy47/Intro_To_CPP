@@ -63,6 +63,9 @@ bool CircleCollider::checkCollisionAABB(AABBCollider* otherCollider)
     return false;
 }
 
+/// <summary>
+/// Draws the collider
+/// </summary>
 void CircleCollider::draw()
 {
     Collider::draw();
