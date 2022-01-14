@@ -11,7 +11,10 @@ public:
     void update(float deltaTime) override;
 
 private:
+    //Spawns Enemies at a time at a location
     void DupilcateEnemies(float deltaTime);
+    
+    //Spawns Upgrades at a timer at a location
     void DupilcateUpgrades(float deltaTime);
 
     
@@ -20,9 +23,10 @@ private:
     Enemy* m_enemy;
     Upgrade* m_upgrade;
 
+    //timer in between spawns 
     float m_timer;
-    float m_timeLimiter;
 
+    //The tag of the spawner 
     char m_choice;
 };
 

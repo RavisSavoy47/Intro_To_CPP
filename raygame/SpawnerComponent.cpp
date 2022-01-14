@@ -12,7 +12,6 @@ SpawnerComponent::SpawnerComponent(char spawn)
 void SpawnerComponent::start()
 {
 	Component::start();
-	m_timeLimiter = 10;
 
 }
 
@@ -26,7 +25,7 @@ void SpawnerComponent::update(float deltaTime)
 }
 
 /// <summary>
-/// Creats a enemy every second once 
+/// Creats a new enemy every second once 
 /// per update 
 /// </summary>
 /// <param name="deltaTime">time deviated based off the CPU</param>
@@ -53,7 +52,7 @@ void SpawnerComponent::DupilcateEnemies(float deltaTime)
 }
 
 /// <summary>
-/// Creats a enemy every second once 
+/// Creats a new upgrade every second once 
 /// per update 
 /// </summary>
 /// <param name="deltaTime">time deviated based off the CPU</param>
@@ -63,9 +62,9 @@ void SpawnerComponent::DupilcateUpgrades(float deltaTime)
 	int rng = rand() % 30 + 1;
 
 	int dropChance = rand() % 11 + 0;
+
+
 	//Creats an upgrade
-
-
 	if(dropChance > 5)
 		m_upgrade = new Upgrade(25 * rng, 5, 100, "Images/ringAround.png", "RingAroundUpgrade");
 	else 
@@ -77,7 +76,7 @@ void SpawnerComponent::DupilcateUpgrades(float deltaTime)
 	//check to see if timer ends up beind=g greater then or equal to 
 	if (m_timer >= 5.0f)
 	{
-		// That new enemy to the scene 
+		// adds the new upgrade to the scene 
 		Engine::getCurrentScene()->addActor(m_upgrade);
 		//sets the timer back to 
 		m_timer = 0;

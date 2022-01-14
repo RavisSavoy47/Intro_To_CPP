@@ -44,12 +44,15 @@ void Player::update(float deltaTime)
 {
 	Actor::update(deltaTime);
 
+
+	//Creats a new Vector2 using the input taken from the input componet
 	MathLibrary::Vector2 moveDirection = m_inputComponent->getMoveAxis();
 
 	//player rotation
 	if (m_moveComponent->getVelocity().getMagnitude() > 0)
 		getTransform()->setForward(m_moveComponent->getVelocity());
-
+	
+	//Sets the move componet volocity
 	m_moveComponent->setVelocity(moveDirection.getNormalized() * 1000);
 }
 
@@ -69,26 +72,29 @@ void Player::onCollision(Actor* actor)
 		std::cout << "collision" << std::endl;
 	}
 
-	/// <summary>
-	/// Attaches the upgrabes to the player and removes the upgrade
-	/// </summary>
-	/// <param name="actor"></param>
+	//If actors name is "RingAroundUpgrade" . . .
 	if (actor->getName() == "RingAroundUpgrade")
 	{
+		//. . . destroy this actor 
 		Engine::destroy(actor);
+		
+		//creata new Rotation Actor and attach it to this actor
 		m_rotate = new RotationActor(this);
+
+		//Add "m_rotate" to the scene
 		Engine::getCurrentScene()->addActor(m_rotate);
 
+		//create a new ring Ring Around and then attach it to m_rotate
 		m_upgrade = new RingAround(m_rotate, "RingAround");
+		
+		//Add "m_upgrade" to the scene
 		Engine::getCurrentScene()->addActor(m_upgrade);
 
+		//Update upgradeCount by one
 		m_upgradeCount++;
 	}
 
-	/// <summary>
-	/// Adds a shield to the player when the player collides to the actor
-	/// </summary>
-	/// <param name="actor"></param>
+	//If actors Name is "ShieldUpgrade". . . 
 	if (actor->getName() == "ShieldUpgrade")
 	{
 		//removes the actor off collision
@@ -98,6 +104,8 @@ void Player::onCollision(Actor* actor)
 		{
 			//Adds a sheild to the player
 			m_shield = new Shield(this, "Shield");
+
+			//Adds shield 
 			Engine::getCurrentScene()->addActor(m_shield);
 		}
 	}
@@ -133,7 +141,9 @@ void Player::onCollision(Actor* actor)
 		//checks the plays health 
 		if (m_lives <= 0)
 		{
+			//Rests deltaTimer For effect
 			Engine::setDeltaTimer(0);
+			Engine::getCurrentScene()->removeActor(this);
 			//Displays the game over text
 			UIText* End = new UIText(10, 300, "Score", "GameOver", 20, 20, 100, RAYWHITE);
 			Engine::getCurrentScene()->addUIElement(End);
