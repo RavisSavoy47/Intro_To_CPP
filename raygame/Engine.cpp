@@ -2,7 +2,7 @@
 #include "raylib.h"
 #include "Transform2D.h"
 #include "MainScene.h"
-#include "PracticeScene.h"
+#include <ctime>
 
 
 bool Engine::m_applicationShouldClose = false;
@@ -10,6 +10,10 @@ Scene** Engine::m_scenes = new Scene*;
 ActorArray Engine::m_actorsToDelete = ActorArray();
 int Engine::m_sceneCount = 0;
 int Engine::m_currentSceneIndex = 0;
+
+float Engine::m_currentTime = 0;;
+float Engine::m_lastTime = 0;
+float Engine::m_deltaTime = 0;
 
 
 Engine::Engine()
@@ -71,13 +75,16 @@ void Engine::run()
 	while (!m_applicationShouldClose && !RAYLIB_H::WindowShouldClose())
 	{
 		//Calculate deltatime
-		float deltaTime = RAYLIB_H::GetFrameTime();
+		//Meant to calculate delta 
+		m_currentTime = clock() / 1000.0f;
+		m_deltaTime = m_currentTime - m_lastTime;
 
 		//Update scene
-		update(deltaTime);
+		update(m_deltaTime);
 
 		//Draw current scene
 		draw();
+		m_lastTime = m_currentTime;
 	}
 
 	end();

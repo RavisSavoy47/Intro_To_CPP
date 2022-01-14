@@ -16,16 +16,18 @@ void InputShotComponent::update(float deltaTime)
 	m_bullet = new Bullet(1000, getOwner(), getName());
 	//adds delta time to the timer 
 	m_timer += deltaTime;
-	if (RAYLIB_H::IsKeyDown(RAYLIB_H::KEY_SPACE ))
+
+	//if the space is is pressed down and the m_timer is greater then second
+	if (RAYLIB_H::IsKeyDown(RAYLIB_H::KEY_SPACE) && m_timer > .1f)
 	{
-		if (m_timer > .1f)
-		{
-			Engine::getCurrentScene()->addActor(m_bullet);
-			m_timer = 0;
-		}
+		//Adds m_bullet to the scene 
+		Engine::getCurrentScene()->addActor(m_bullet);
+		//Rests the timer back to zero
+		m_timer = 0;
 	}
 	else
 	{
+		//else delete the created bullet 
 		delete m_bullet;
 	}
 }

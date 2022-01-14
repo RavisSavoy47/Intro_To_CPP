@@ -38,13 +38,12 @@ void Shield::update(float deltaTime)
 /// <param name="actor"></param>
 void Shield::onCollision(Actor* actor)
 {
-	/// <summary>
-	/// If the actor collides with an enemy bullet
-	/// </summary>
-	/// <param name="actor"></param>
+	//if the actor is named "enemyBullet". . .
 	if (actor->getName() == "enemyBullet")
 	{
+		//destroy the actor
 		Engine::destroy(actor);
+		//destroy this actor
 		Engine::destroy(this);
 	}
 }
