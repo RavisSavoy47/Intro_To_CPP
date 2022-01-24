@@ -36,26 +36,25 @@ public:
     /// <summary>
     /// Gets the name of this actor
     /// </summary>
-    /// <returns></returns>
     const char* getName() { return m_name; }
 
     /// <summary>
     /// Sets the name of this actor
     /// </summary>
-    /// <param name="name"></param>
+    /// <param name="name">The new actor name</param>
     void setName(const char* name) { m_name = name; }
 
     /// <summary>
-    /// Gets the first componet instnce attached to this actor
+    /// Gets the first component instance attached to this actor
     /// that matches the name
     /// </summary>
-    /// <param name="name">The name of the component instance</param>
-    Component* getComponet(const char* componentName);
+    /// <param name="componentName">The name of the component instance</param>
+    Component* getComponent(const char* componentName);
 
     /// <summary>
-    /// Adds a component to th ened of the component array
+    /// Adds a component to the end of the component array
     /// </summary>
-    /// <param name="component">The new componenet added to the array</param>
+    /// <param name="component">The new component to attach to the actor</param>
     /// <returns>A reference to the component added to the array</returns>
     Component* addComponent(Component* component);
 
@@ -71,10 +70,10 @@ public:
     /// </summary>
     /// <param name="component">The name of the component to remove from the array</param>
     /// <returns>False if the component is not in the array</returns>
-    bool removeComponent(const char* componentName); 
+    bool removeComponent(const char* name);
 
     /// <summary>
-    /// Called during the first update after an actor is added to a scene.
+    /// Called during the first update after an actor is added to a scene
     /// </summary>
     virtual void start();
 
